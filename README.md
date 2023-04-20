@@ -1,1 +1,1 @@
-ecommerce-flask
+A ecommerce project using Flask
