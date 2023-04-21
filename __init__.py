@@ -38,7 +38,7 @@ def login_user(email: str, password: str) -> int:
         flash(error)
         return 1
 
-def register_user(username: str, email: str, password: str):
+def register_user(username: str, email: str, password: str, userType: int):
     from .db import get_db
     error = None
     if not username:
@@ -54,8 +54,8 @@ def register_user(username: str, email: str, password: str):
     if error is None:
         try:
             db.execute(
-                "INSERT INTO user (username, email, password) VALUES (?, ?, ?)",
-                (username, email, generate_password_hash(password))
+                "INSERT INTO user (username, email, password, userType) VALUES (?, ?, ?, ?)",
+                (username, email, generate_password_hash(password), userType)
                 )
             db.commit()
         except db.IntegrityError:
@@ -123,7 +123,7 @@ def create_app(test_config=None):
     @app.route("/register", methods=['GET', 'POST'])
     def register():
         if request.method == "POST":
-            register_user(request.form['busername'], request.form['bemail'], request.form['bpassword'])
+            register_user(request.form['busername'], request.form['bemail'], request.form['bpassword'], int(request.form['busertype']))
             return redirect(url_for("login"))
 
         else:
