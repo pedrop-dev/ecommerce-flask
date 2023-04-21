@@ -8,6 +8,8 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
     <link rel="stylesheet" href="{{url_for('static', filename='style/style.css')}}">
+
+    <link rel="stylesheet" href="{{url_for('static', filename='style/mquery.css')}}">
 </head>
 <body>
     <main>
@@ -18,24 +20,35 @@
 
             <form method="post" id="form-box">
                 <div class="icon-input-box">
-                    <span class="material-icons">person</span>
+                    <label for="iusername">
+                        <span class="material-icons">person</span>
+                    </label>
+
                     <input type="text" name="busername" class="iusername ipattern" placeholder="Username">
                 </div>
 
                 <div class="icon-input-box">
-                    <span class="material-icons">email</span>
+                    <label for="iemail">
+                        <span class="material-icons">email</span>
+                    </label>
+
                     <input type="email" name="bemail" class="iemail ipattern" placeholder="Email">
                 </div>
 
                 <div class="icon-input-box">
-                    <span class="material-icons">lock</span>
+                    <label for="ipassword">
+                        <span class="material-icons">lock</span>    
+                    <label>
                     <input type="password" name="bpassword" class="ipassword ipattern" placeholder="Password">
                 </div>
 
-                <label for="Buyer">Buyer</label> 
-                <input type="radio" name="busertype" value="1">
-                <label for="Seller">Seller</label>
-                <input type="radio" name="busertype" value="2">
+                <div class="buy-sell-box">
+                    <label for="buyer">Buyer</label>
+                    <input type="radio" name="busertype" value="1" class="buyer iradio">
+
+                    <label for="seller">Seller</label>
+                    <input type="radio" name="busertype" value="2" class="seller iradio">
+                </div>
 
                 <input type="submit" value="Sign Up" id="singup">
             </form>

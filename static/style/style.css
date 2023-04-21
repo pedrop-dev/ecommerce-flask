@@ -14,7 +14,7 @@ body{
 }
 
 #register-box {
-    height: 400px;
+    height: 500px;
     width: 275px;
     display: flex;
     flex-direction: column;
@@ -26,7 +26,8 @@ body{
 }
 
 #register-box h2 {
-    margin-bottom: 100px;
+    margin-bottom: 80px;
+    margin-top: 20px;
 }
 
 #form-box {
@@ -36,18 +37,43 @@ body{
     align-items: center;
 }
 
+.icon-input-box {
+    width: 100%;
+    display: flex;
+    margin-bottom: 20px;
+}
+
 .material-icons {
-    font-size: 1.5em;
+    text-align: center;
+    line-height: 40px;
+    margin: 0px;
+    padding: 0px 10px 0px 10px;
+    font-size: 1.2em;
     color: #c0c0c0;
+    background-color: white;
 }
 
 .ipattern {
     height: 40px;
-    width: 70%;
+    width: 95%;
     padding-left: 5px;
-    margin: 10px 0px 10px 0px;
     outline: none;
     border: none;
+}
+
+.buy-sell-box {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    letter-spacing: 0.1em;
+    margin: 20px 0px 20px 0px;
+}
+
+.iradio {
+    height: 17px;
+    width: 17px;
+    accent-color: black;
+    margin-right: 20px;
 }
 
 #singup {
@@ -55,8 +81,21 @@ body{
     width: 90%;
     background-color: black;
     color: white;
+    font-weight: bold;
+    letter-spacing: 0.1em;
     cursor: pointer;
     border: none;
     margin-left: 20px;
     margin-top: 10px;
+    transition: 0.2s;
+}
+
+#singup:hover {
+    color: black;
+    background-color: white;
+    border: 1px solid black;
+}
+
+.welcome-box {
+    display: none;
 }
