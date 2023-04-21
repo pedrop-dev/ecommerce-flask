@@ -6,7 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Register</title>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link rel="stylesheet"  href="{{url_for('static/style', filename='style.css')}}">
+
+    <link rel="stylesheet" href="{{url_for('static', filename='style/style.css')}}">
 </head>
 <body>
     <main>
@@ -16,16 +17,16 @@
             </h2>
 
             <form method="post">
-                <i class="material-icons">person</i>
-                <input type="text" name="busername" id="iusername" placeholder="Username">
+                <span class="material-icons">person</span>
+                <input type="text" name="busername" class="iusername ipattern" placeholder="Username">
 
                 <span class="material-icons">email</span>
-                <input type="email" name="bemail" id="iemail" placeholder="Email">
+                <input type="email" name="bemail" class="iemail ipattern" placeholder="Email">
 
                 <span class="material-icons">lock</span>
-                <input type="password" name="bpassword" id="ipassword" placeholder="Password">
+                <input type="password" name="bpassword" class="ipassword ipattern" placeholder="Password">
 
-                <input type="submit" value="Sign Up">
+                <input type="submit" value="Sign Up" id="singup">
             </form>
         </section>
 

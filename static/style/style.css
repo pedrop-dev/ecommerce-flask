@@ -2,12 +2,49 @@
     margin: 0px;
     padding: 0px;
     box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 body{
-    background-color: red;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
 }
 
 #register-box {
-    background-color: blue;
+    height: 400px;
+    width: 275px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: whitesmoke;
+    box-shadow: 5px 5px 8px #0000001f;
+
+}
+
+#register-box h2 {
+    margin-bottom: 100px;
+}
+
+.ipattern {
+    height: 40px;
+    width: 80%;
+    padding-left: 5px;
+    margin: 10px 0px 10px 0px;
+    outline: none;
+    border: 1px solid #c0c0c0;
+}
+
+#singup {
+    height: 40px;
+    width: 80%;
+    background-color: black;
+    color: white;
+    cursor: pointer;
+    border: none;
+    margin-left: 27px;
+    margin-top: 10px;
 }
