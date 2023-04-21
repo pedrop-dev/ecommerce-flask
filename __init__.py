@@ -1,17 +1,44 @@
 
 import os
 from sqlite3 import IntegrityError
-from flask import Flask, render_template, request, url_for, redirect, session, flash
+from flask import Flask, render_template, request, url_for, redirect, session, flash, get_flashed_messages
 from werkzeug.security import check_password_hash, generate_password_hash
 
-def login_user(username: str, password: str):
-    pass
+def login_user(email: str, password: str) -> int:
+    from .db import get_db
+
+    error = None
+
+    db = get_db()
+
+    user = db.execute(
+            'SELECT * FROM user WHERE email = ?',
+            (email,)
+            ).fetchone()
+
+    if user is None:
+        error = 'Incorrect Username'
+
+    elif not check_password_hash(user['password'], password):
+        error = 'Incorrect Password'
+
+    if error is None:
+        session.clear()
+        session['user_id'] = user['id']
+        return 0
+
+    else:
+        flash(error)
+        return 1
 
 def register_user(username: str, email: str, password: str):
-    from db import get_db
+    from .db import get_db
     error = None
     if not username:
         error = 'Username is required'
+
+    elif not email:
+        error = "Email is required"
 
     elif not password:
         error = 'Password is required'
@@ -60,7 +87,9 @@ def create_app(test_config=None):
     @app.route('/login', methods=['GET', 'POST'])
     def login():
         if request.method == 'POST':
-            login_user(request.form['username'], request.form['password']);
+            if login_user(request.form['bemail'], request.form['bpassword']):
+                return redirect(url_for("login"))
+
             return redirect(url_for("home"))
 
         else:
@@ -78,7 +107,7 @@ def create_app(test_config=None):
 
     @app.route("/logout")
     def logout():
-        session.pop('username', None)
+        session.clear()
         return redirect(url_for("home"))
 
     from . import db
