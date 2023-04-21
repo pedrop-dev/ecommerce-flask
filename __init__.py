@@ -1,8 +1,14 @@
 
 import os
+import functools
+
 from sqlite3 import IntegrityError
-from flask import Flask, render_template, request, url_for, redirect, session, flash, get_flashed_messages
+from flask import Flask, render_template, request, url_for, redirect, session, flash, get_flashed_messages, g
 from werkzeug.security import check_password_hash, generate_password_hash
+
+
+BUYER = 1
+SELLER = 2
 
 def login_user(email: str, password: str) -> int:
     from .db import get_db
@@ -25,13 +31,14 @@ def login_user(email: str, password: str) -> int:
     if error is None:
         session.clear()
         session['user_id'] = user['id']
+        session['user_type'] = user['userType']
         return 0
 
     else:
         flash(error)
         return 1
 
-def register_user(username: str, email: str, password: str):
+def register_user(username: str, email: str, password: str, userType: int):
     from .db import get_db
     error = None
     if not username:
@@ -47,8 +54,8 @@ def register_user(username: str, email: str, password: str):
     if error is None:
         try:
             db.execute(
-                "INSERT INTO user (username, email, password) VALUES (?, ?, ?)",
-                (username, email, generate_password_hash(password))
+                "INSERT INTO user (username, email, password, userType) VALUES (?, ?, ?, ?)",
+                (username, email, generate_password_hash(password), userType)
                 )
             db.commit()
         except db.IntegrityError:
@@ -80,6 +87,23 @@ def create_app(test_config=None):
     except OSError:
         pass
 
+    @app.route("/seller")
+    def seller():
+        if g.user is None:
+            return redirect(url_for('login'))
+
+
+        error = None
+        if session['user_type'] == SELLER:
+            error = "User must be seller to sell in this website"
+        
+        if error is None:
+            return render_template('seller.html')
+
+        else:
+            flash(error)
+            return redirect(url_for('home'))
+
     @app.route("/")
     def home():
         return render_template("index.html")
@@ -99,7 +123,7 @@ def create_app(test_config=None):
     @app.route("/register", methods=['GET', 'POST'])
     def register():
         if request.method == "POST":
-            register_user(request.form['busername'], request.form['bemail'], request.form['bpassword'])
+            register_user(request.form['busername'], request.form['bemail'], request.form['bpassword'], int(request.form['busertype']))
             return redirect(url_for("login"))
 
         else:
