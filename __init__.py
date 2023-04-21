@@ -1,8 +1,14 @@
 
 import os
+import functools
+
 from sqlite3 import IntegrityError
-from flask import Flask, render_template, request, url_for, redirect, session, flash, get_flashed_messages
+from flask import Flask, render_template, request, url_for, redirect, session, flash, get_flashed_messages, g
 from werkzeug.security import check_password_hash, generate_password_hash
+
+
+BUYER = 1
+SELLER = 2
 
 def login_user(email: str, password: str) -> int:
     from .db import get_db
@@ -25,6 +31,7 @@ def login_user(email: str, password: str) -> int:
     if error is None:
         session.clear()
         session['user_id'] = user['id']
+        session['user_type'] = user['userType']
         return 0
 
     else:
@@ -79,6 +86,23 @@ def create_app(test_config=None):
 
     except OSError:
         pass
+
+    @app.route("/seller")
+    def seller():
+        if g.user is None:
+            return redirect(url_for('login'))
+
+
+        error = None
+        if session['user_type'] == SELLER:
+            error = "User must be seller to sell in this website"
+        
+        if error is None:
+            return render_template('seller.html')
+
+        else:
+            flash(error)
+            return redirect(url_for('home'))
 
     @app.route("/")
     def home():
