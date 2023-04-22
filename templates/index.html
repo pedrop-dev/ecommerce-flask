@@ -12,8 +12,12 @@
       <a href="{{url_for('register')}}">Register</a>
       <a href="{{url_for('login')}}">Login</a>
       <a href="{{url_for('seller')}}">Seller</a>
+      <a href="{{url_for('checkout')}}">Checkout</a>
+      <a href="{{url_for('logout')}}">Logout</a>
     </div>
   </nav>
+
+  <!-- shows errors if there are any, for example when user tries to access page that requires login -->
   {% with messages = get_flashed_messages()%}
     {% if messages %}
     <ul class="flashes">
@@ -23,10 +27,11 @@
     </ul>
     {% endif %}
   {% endwith %}
+  <!-- shows the offers available at the current moment -->
   <div class="offers">
   {% for offer in offers %}
     <ul>
-      <li> {{ offer['offername'] }} for {{ offer['price']}} </li>
+      <a href=" {{ url_for('product', id=offer['id']) }} "><li> {{ offer['offername'] }} for {{ offer['price']}} </li></a>
     </ul>
   {% endfor %}
   </div>

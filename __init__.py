@@ -124,14 +124,24 @@ def create_app(test_config=None):
     def load_logged_user():
         from .db import get_db
         user_id = session.get('user_id')
+        app.logger.debug(f"user_id = {user_id}")
         
+        g.shopping_cart = None
+
         if user_id is None:
             g.user = None
 
         else:
-            g.user = get_db().execute(
+
+            user = get_db().execute(
                     "SELECT * FROM user WHERE id = ?", (user_id,)
-                    ).fetchone()['id']
+                    ).fetchone()
+
+            g.user = user['id']
+
+            if g.shopping_cart is None:
+                g.shopping_cart = list()
+
 
         app.logger.debug(f"Loading { g.user } as user")
 
@@ -183,10 +193,10 @@ def create_app(test_config=None):
     @app.route("/register", methods=['GET', 'POST'])
     def register():
         if request.method == "POST":
-            if register_user(request.form['busername'], request.form['bemail'], request.form['bpassword'], int(request.form['busertype'])) == 0:
+            if register_user(request.form['busername'], request.form['bemail'], request.form['bpassword'], int(request.form['busertype'])) == 0: # No errors
                 return redirect(url_for("login"))
 
-            return redirect(request.url)
+            return redirect(request.url) # if there is error stay in same url
 
         else:
             return render_template("register.html")
@@ -196,7 +206,26 @@ def create_app(test_config=None):
         session.clear()
         return redirect(url_for("home"))
 
+    @app.route("/checkout", methods=['GET', 'POST'])
+    def checkout():
+        if request.method == 'POST':
+            pass
+
+        return render_template('checkout.html')
+
+    @app.route('/product/<int:id>')
+    def product(id):
+        from .db import get_db
+
+        offer = get_db().execute(
+                "SELECT * FROM offer WHERE id = ?", (id,)
+                ).fetchone()
+
+        return render_template('product.html', product=offer)
+
     from . import db
+
     db.init_app(app)
 
     return app
+
