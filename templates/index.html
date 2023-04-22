@@ -10,37 +10,38 @@
     <link rel="stylesheet" href="{{url_for('static', filename='style/mquery.css')}}">
 </head>
 <body>
-    <hader>
-      <nav>
-        <div id="header-logo">
+  <nav>
+    <div id="header-logo">
 
-        </div>
+    </div>
+    <div>
+      <a href="{{url_for('register')}}">Register</a>
+      <a href="{{url_for('login')}}">Login</a>
+      <a href="{{url_for('seller')}}">Seller</a>
+      <a href="{{url_for('checkout')}}">Checkout</a>
+      <a href="{{url_for('logout')}}">Logout</a>
+    </div>
+     <!-- shows errors if there are any, for example when user tries to access page that requires login -->
+    {% with messages = get_flashed_messages()%}
+      {% if messages %}
+      <ul class="flashes">
+        {% for message in messages %}
+          <li> {{ message }}</li>
+        {% endfor %}
+      </ul>
+      {% endif %}
+    {% endwith %}
+  </nav>
 
-        <div>
-          <a href="{{url_for('register')}}">Register</a>
-          <a href="{{url_for('login')}}">Login</a>
-          <a href="{{url_for('seller')}}">Seller</a>
-          {% with messages = get_flashed_messages()%}
-          {% if messages %}
-          <ul class="flashes">
-            {% for message in messages %}
-              <li> {{ message }}</li>
-            {% endfor %}
-          </ul>
-          {% endif %}
-          {% endwith %}
-          <div class="offers">
-            {% for offer in offers %}
-            <ul>
-              <li> {{ offer['offername'] }} for {{ offer['price']}} </li>
-            </ul>
-            {% endfor %}
-          <span class="material-symbols-outlined">
-            menu
-          </span>
-        </div>
-    </hader>
-    </nav>
-</div>
+ 
+  <!-- shows the offers available at the current moment -->
+  <div class="offers">
+  {% for offer in offers %}
+    <ul>
+      <a href=" {{ url_for('product', id=offer['id']) }} "><li> {{ offer['offername'] }} for {{ offer['price']}} </li></a>
+    </ul>
+  {% endfor %}
+  </div>
+
 </body>
 </html>
