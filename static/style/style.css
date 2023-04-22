@@ -13,32 +13,45 @@ body{
     background-color: white;
 }
 
-#register-box {
+main {
     height: 500px;
     width: 275px;
     display: flex;
-    flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-color: whitesmoke;
+    flex-direction: row;
+    background-color: #f0f0f0;
     box-shadow: 5px 5px 8px #0000001f;
-
+    transition: width .3s, height .3s;
+    transition-timing-function: ease;
 }
 
-#register-box h2 {
-    margin-bottom: 80px;
-    margin-top: 20px;
-}
-
-#form-box {
+#register-box {
+    height: 100%;
+    width: 100%;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
 }
 
-.icon-input-box {
+#form-box {
     width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#register-box legend {
+    margin-bottom: 100px;
+    margin-top: 0px;
+    font-size: 1.7em;
+    font-weight: bold;
+}
+
+.icon-input-box {
+    width: 85%;
     display: flex;
     margin-bottom: 20px;
 }
@@ -85,7 +98,6 @@ body{
     letter-spacing: 0.1em;
     cursor: pointer;
     border: none;
-    margin-left: 20px;
     margin-top: 10px;
     transition: 0.2s;
 }

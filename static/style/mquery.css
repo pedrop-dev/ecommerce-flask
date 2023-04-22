@@ -1,0 +1,39 @@
+/*Register*/
+@media screen and (min-width: 600px) and (max-width: 768px) {
+
+    main {
+        height: 500px;
+        width: 550px;
+        /*flex-direction: row;*/
+    }
+}
+
+@media screen and (min-width: 769px) and (max-width: 992px) {
+    main {
+        width: 730px;
+    }
+
+    .welcome-box {
+        height: 100%;
+        width: 80%;
+        display: flex;
+        justify-content: center;
+        background-color: black;
+    }
+}
+
+@media screen and (min-width: 993px) {
+    main {
+        width: 850px;
+    }
+
+    .welcome-box {
+        height: 100%;
+        width: 80%;
+        display: flex;
+        justify-content: center;
+        background-color: black;
+    }
+}
+
+/*Login*/
