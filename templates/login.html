@@ -6,28 +6,48 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="{{url_for('static', filename='style/login.css')}}">
+    <link rel="stylesheet" href="{{url_for('static', filename='style/mquery.css')}}">
 </head>
 <body>
     <main>
         <section class="welcome-box">
+          <h2>
+            Hello!
+          </h2>
 
+          <p>
+              Enter you personal details and start a journey with us
+          </p>
+
+          <a href="register.html">Sign Up</a>
         </section>
 
         <section id="register-box">
-            <h2>
-                Login In Your Account
-            </h2>
+          <form action="post" id="form-box">
+              <legend>
+                  Login In Your Account
+              </legend>
 
-            <form action="" method="post">
-                <span class="material-icons">email</span>
-                <input type="email" name="bemail" id="iemail" placeholder="Email">
+              <div class="icon-input-box">
+                  <label for="iemail">
+                      <span class="material-icons">email</span>
+                  </label>
 
-                <span class="material-icons">lock</span>
-                <input type="password" name="bpassword" id="ipassword" placeholder="Password">
+                  <input type="email" name="bemail" class="iemail ipattern" placeholder="Email">
+              </div>
 
-                <input type="submit" value="Sign In">
+              <div class="icon-input-box">
+                  <label for="ipassword">
+                      <span class="material-icons">lock</span>    
+                  </label>
+                  <input type="password" name="bpassword" class="ipassword ipattern" placeholder="Password">
+              </div>
+
+              <input type="submit" value="Sign In" id="signup">
             </form>
         </section>
+
         <section class="messages">
           {% with messages = get_flashed_messages() %}
             {% if messages %}

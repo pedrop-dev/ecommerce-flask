@@ -1,10 +1,9 @@
-/*Register*/
+/*Register and Login*/
 @media screen and (min-width: 600px) and (max-width: 768px) {
 
     main {
         height: 500px;
         width: 550px;
-        /*flex-direction: row;*/
     }
 }
 
@@ -17,8 +16,41 @@
         height: 100%;
         width: 80%;
         display: flex;
+        flex-direction: column;
         justify-content: center;
+        align-items: center;
+        padding: 15px;
+        text-align: center;
+        color: white;
         background-color: black;
+    }
+
+    .welcome-box p {
+        font-family: 'Arial Narrow Bold', sans-serif;
+        margin: 30px 0px 30px 0px;
+        line-height: 20px;
+    }
+
+    .welcome-box a {
+        height: 40px;
+        width: 60%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        outline: none;
+        cursor: pointer;
+        border: 1px solid white;
+        color: white;
+        text-decoration: none;
+        letter-spacing: 0.1em;
+        font-weight: bold;
+        font-size: 0.9em;
+        transition: .2s ease;
+    }
+
+    .welcome-box a:hover {
+        background-color: #f0f0f0;
+        color: black;
     }
 }
 
@@ -31,9 +63,39 @@
         height: 100%;
         width: 80%;
         display: flex;
+        flex-direction: column;
         justify-content: center;
+        align-items: center;
+        padding: 20px;
+        text-align: center;
+        color: white;
         background-color: black;
     }
-}
 
-/*Login*/
+    .welcome-box p {
+        font-family: 'Arial Narrow Bold', sans-serif;
+        margin: 30px 0px 30px 0px;
+        line-height: 20px;
+    }
+
+    .welcome-box a {
+        height: 40px;
+        width: 60%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        outline: none;
+        cursor: pointer;
+        border: 1px solid white;
+        color: white;
+        text-decoration: none;
+        letter-spacing: 0.1em;
+        font-weight: bold;
+        font-size: 0.9em;
+    }
+
+    .welcome-box a:hover {
+        background-color: #f0f0f0;
+        color: black;
+    }
+}

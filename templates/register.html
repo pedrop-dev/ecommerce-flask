@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Register</title>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link rel="stylesheet" href="{{url_for('static', filename='style/style.css')}}">
+    <link rel="stylesheet" href="{{url_for('static', filename='style/register.css')}}">
     <link rel="stylesheet" href="{{url_for('static', filename='style/mquery.css')}}">
 </head>
 <body>
@@ -36,7 +36,7 @@
                 <div class="icon-input-box">
                     <label for="ipassword">
                         <span class="material-icons">lock</span>    
-                    <label>
+                    </label>
                     <input type="password" name="bpassword" class="ipassword ipattern" placeholder="Password">
                 </div>
 
@@ -48,12 +48,20 @@
                     <input type="radio" name="busertype" value="2" class="seller iradio">
                 </div>
 
-                <input type="submit" value="Sign Up" id="singup">
+                <input type="submit" value="Sign Up" id="signup">
             </form>
         </section>
 
         <section class="welcome-box">
+            <h2>
+                Welcome Back!
+            </h2>
 
+            <p>
+                To keep connected with us please login with your personal info
+            </p>
+
+            <a href="login.html">Sign In</a>
         </section>
         <!-- technically there might be multiple error messages that's why it is handled as a list -->
         <div class="errors">
