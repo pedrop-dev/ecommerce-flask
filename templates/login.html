@@ -20,11 +20,11 @@
               Enter you personal details and start a journey with us
           </p>
 
-          <a href="register.html">Sign Up</a>
+          <a href="{{ url_for('register') }}">Sign Up</a>
         </section>
 
         <section id="register-box">
-          <form action="post" id="form-box">
+          <form method="post" id="form-box">
               <legend>
                   Login In Your Account
               </legend>

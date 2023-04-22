@@ -7,6 +7,13 @@
     <title>Home</title>
 </head>
 <body>
+  <nav>
+    <div>
+      <a href="{{url_for('register')}}">Register</a>
+      <a href="{{url_for('login')}}">Login</a>
+      <a href="{{url_for('seller')}}">Seller</a>
+    </div>
+  </nav>
   {% with messages = get_flashed_messages()%}
     {% if messages %}
     <ul class="flashes">
@@ -16,5 +23,12 @@
     </ul>
     {% endif %}
   {% endwith %}
+  <div class="offers">
+  {% for offer in offers %}
+    <ul>
+      <li> {{ offer['offername'] }} for {{ offer['price']}} </li>
+    </ul>
+  {% endfor %}
+  </div>
 </body>
 </html>

@@ -10,6 +10,38 @@ from werkzeug.security import check_password_hash, generate_password_hash
 BUYER = 1
 SELLER = 2
 
+def create_new_offer(price: str, title: str, app) -> None:
+    from .db import get_db
+
+    error = None
+
+    db = get_db()
+    user = db.execute(
+            'SELECT * FROM user WHERE id = ?', 
+            (str(g.user),)
+            ).fetchone()
+
+    username = user['username']
+    app.logger.debug(f'user[\'username\'] = { username}')
+
+    try:
+        db.execute(
+                "INSERT INTO offer (username, price, offername) VALUES (?, ?, ?)", 
+                (user['username'], price, title)
+                )
+        db.commit()
+
+    except:
+        pass
+
+    if error is None:
+        pass
+
+    else:
+        flash(error)
+
+
+
 def login_user(email: str, password: str) -> int:
     from .db import get_db
 
@@ -88,26 +120,53 @@ def create_app(test_config=None):
     except OSError:
         pass
 
-    @app.route("/seller")
-    def seller():
-        if g.user is None:
-            return redirect(url_for('login'))
-
-
-        error = None
-        if session['user_type'] == SELLER:
-            error = "User must be seller to sell in this website"
+    @app.before_request
+    def load_logged_user():
+        from .db import get_db
+        user_id = session.get('user_id')
         
-        if error is None:
-            return render_template('seller.html')
+        if user_id is None:
+            g.user = None
 
         else:
-            flash(error)
+            g.user = get_db().execute(
+                    "SELECT * FROM user WHERE id = ?", (user_id,)
+                    ).fetchone()['id']
+
+        app.logger.debug(f"Loading { g.user } as user")
+
+    @app.route("/seller", methods=["GET", "POST"])
+    def seller():
+        if request.method == 'POST':
+            create_new_offer(request.form['bprice'], request.form['btitle'], app)
             return redirect(url_for('home'))
+        else:
+            if g.user is None:
+                return redirect(url_for('login'))
+
+
+            error = None
+            if session['user_type'] != SELLER:
+                error = "User must be seller to sell in this website"
+            
+            if error is None:
+                return render_template('seller.html')
+
+            else:
+                flash(error)
+                return redirect(url_for('home'))
 
     @app.route("/")
     def home():
-        return render_template("index.html")
+        from .db import get_db
+        db = get_db()
+
+        offers = db.execute(
+                "SELECT * FROM offer"
+                ).fetchall()
+
+
+        return render_template("index.html", offers=offers)
 
     @app.route('/login', methods=['GET', 'POST'])
     def login():
