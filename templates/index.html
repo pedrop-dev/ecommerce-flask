@@ -1,13 +1,19 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="{{url_for('static', filename='style/html.css')}}">
+    <link rel="stylesheet" href="{{url_for('static', filename='style/mquery.css')}}">
 </head>
 <body>
   <nav>
+    <div id="header-logo">
+
+    </div>
     <div>
       <a href="{{url_for('register')}}">Register</a>
       <a href="{{url_for('login')}}">Login</a>
@@ -15,18 +21,19 @@
       <a href="{{url_for('checkout')}}">Checkout</a>
       <a href="{{url_for('logout')}}">Logout</a>
     </div>
+     <!-- shows errors if there are any, for example when user tries to access page that requires login -->
+    {% with messages = get_flashed_messages()%}
+      {% if messages %}
+      <ul class="flashes">
+        {% for message in messages %}
+          <li> {{ message }}</li>
+        {% endfor %}
+      </ul>
+      {% endif %}
+    {% endwith %}
   </nav>
 
-  <!-- shows errors if there are any, for example when user tries to access page that requires login -->
-  {% with messages = get_flashed_messages()%}
-    {% if messages %}
-    <ul class="flashes">
-      {% for message in messages %}
-        <li> {{ message }}</li>
-      {% endfor %}
-    </ul>
-    {% endif %}
-  {% endwith %}
+ 
   <!-- shows the offers available at the current moment -->
   <div class="offers">
   {% for offer in offers %}
@@ -35,5 +42,6 @@
     </ul>
   {% endfor %}
   </div>
+
 </body>
 </html>
