@@ -38,7 +38,7 @@ def login_user(email: str, password: str) -> int:
         flash(error)
         return 1
 
-def register_user(username: str, email: str, password: str, userType: int):
+def register_user(username: str, email: str, password: str, userType: int) -> int:
     from .db import get_db
     error = None
     if not username:
@@ -62,9 +62,10 @@ def register_user(username: str, email: str, password: str, userType: int):
             error = f"{username} or {email} is already registered"
 
         else:
-            return url_for('login')
+            return 0
 
     flash(error)
+    return 1
 
 def create_app(test_config=None):
     app = Flask(__name__, instance_relative_config=True)
@@ -123,8 +124,10 @@ def create_app(test_config=None):
     @app.route("/register", methods=['GET', 'POST'])
     def register():
         if request.method == "POST":
-            register_user(request.form['busername'], request.form['bemail'], request.form['bpassword'], int(request.form['busertype']))
-            return redirect(url_for("login"))
+            if register_user(request.form['busername'], request.form['bemail'], request.form['bpassword'], int(request.form['busertype'])) == 0:
+                return redirect(url_for("login"))
+
+            return redirect(request.url)
 
         else:
             return render_template("register.html")
