@@ -55,6 +55,18 @@
         <section class="welcome-box">
 
         </section>
+        <!-- technically there might be multiple error messages that's why it is handled as a list -->
+        <div class="errors">
+          {% with messages = get_flashed_messages() %}
+            {% if messages %}
+              <ul class="flashes">
+                {% for message in messages %}
+                <li> {{ message }}</li>
+                {% endfor %}
+              </ul>
+            {% endif %}
+          {% endwith %}
+        </div>  
     </main>
 </body>
 </html>
