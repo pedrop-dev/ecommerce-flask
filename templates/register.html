@@ -50,6 +50,19 @@
 
                 <input type="submit" value="Sign Up" id="signup">
             </form>
+
+               <!-- technically there might be multiple error messages that's why it is handled as a list -->
+            <div class="errors">
+                {% with messages = get_flashed_messages() %}
+                {% if messages %}
+                    <ul class="flashes">
+                    {% for message in messages %}
+                    <li> {{ message }}</li>
+                    {% endfor %}
+                    </ul>
+                {% endif %}
+                {% endwith %}
+            </div>
         </section>
 
         <section class="welcome-box">
@@ -61,20 +74,8 @@
                 To keep connected with us please login with your personal info
             </p>
 
-            <a href="{{ url_for('login')}} ">Sign In</a>
+            <a href="{{ url_for('login')}}">Sign In</a>
         </section>
-        <!-- technically there might be multiple error messages that's why it is handled as a list -->
-        <div class="errors">
-          {% with messages = get_flashed_messages() %}
-            {% if messages %}
-              <ul class="flashes">
-                {% for message in messages %}
-                <li> {{ message }}</li>
-                {% endfor %}
-              </ul>
-            {% endif %}
-          {% endwith %}
-        </div>  
     </main>
 </body>
 </html>

@@ -44,7 +44,7 @@ main {
 }
 
 #register-box legend {
-    margin-bottom: 160px;
+    margin-bottom: 120px;
     margin-top: 0px;
     font-size: 1.7em;
     font-weight: bold;
@@ -111,4 +111,16 @@ main {
 
 .welcome-box {
     display: none;
+}
+
+.messages {
+    margin-top: 10px;
+    list-style: none;
+    color: #ff2121;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+
+.flashes {
+    list-style-type: none;
+    color: #ff2121;
 }

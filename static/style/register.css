@@ -111,3 +111,15 @@ main {
 .welcome-box {
     display: none;
 }
+
+.messages {
+    margin-top: 10px;
+    list-style: none;
+    color: #ff2121;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+
+.flashes {
+    list-style-type: none;
+    color: #ff2121;
+}
