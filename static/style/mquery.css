@@ -1,6 +1,5 @@
 /*Register and Login*/
 @media screen and (min-width: 600px) and (max-width: 768px) {
-
     main {
         height: 500px;
         width: 550px;
@@ -97,5 +96,58 @@
     .welcome-box a:hover {
         background-color: #f0f0f0;
         color: black;
+    }
+}
+
+/*Home*/
+/*Header*/
+
+
+/*@media screen and (min-width: 600px) and (max-width: 768px) {
+
+}
+
+@media screen and (min-width: 769px) and (max-width: 992px) {
+ 
+}
+
+@media screen and (min-width: 993px) {
+
+}*/
+
+@media (max-width: 768px) {
+    .material-icons {
+        display: block;
+        cursor: pointer;
+    }
+
+    .nav-bar {
+        height: 500px;
+        width: 100vw;
+        position: absolute;
+        top: 70px;
+        left: 0px;
+        right: 0px;
+        overflow: hidden;
+    }
+
+    .nav-bar.active {
+        height: 500px;
+    }
+
+    .nav-bar ul {
+        width: fit-content;
+        display: block;
+        margin: 50px auto 0px auto;
+        text-align: center;
+        opacity: 1;
+    }
+
+    .nav-bar.active ul {
+        opacity: 1;
+    }
+
+    .nav-bar ul li a {
+        margin-bottom: 40px;
     }
 }

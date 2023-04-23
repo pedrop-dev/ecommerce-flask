@@ -6,34 +6,41 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home</title>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link rel="stylesheet" href="{{url_for('static', filename='style/html.css')}}">
+    <link rel="stylesheet" href="{{url_for('static', filename='style/home.css')}}">
     <link rel="stylesheet" href="{{url_for('static', filename='style/mquery.css')}}">
+
+    <script src="{{url_for('static', filename='script/home.js')}}"></script>
 </head>
 <body>
-  <nav>
-    <div id="header-logo">
+  <header>
+    <div class="logo">
+      <p>Logo</p>
+    </div>
 
-    </div>
-    <div>
-      <a href="{{url_for('register')}}">Register</a>
-      <a href="{{url_for('login')}}">Login</a>
-      <a href="{{url_for('seller')}}">Seller</a>
-      <a href="{{url_for('checkout')}}">Checkout</a>
-      <a href="{{url_for('logout')}}">Logout</a>
-    </div>
-     <!-- shows errors if there are any, for example when user tries to access page that requires login -->
-    {% with messages = get_flashed_messages()%}
-      {% if messages %}
-      <ul class="flashes">
-        {% for message in messages %}
-          <li> {{ message }}</li>
-        {% endfor %}
+    <span class="material-icons">menu</span>
+
+    <nav class="nav-bar">
+      <ul>
+        <li><a href="{{url_for('register')}} ">Register</a></li>
+        <li><a href="{{url_for('login')}}">Login</a></li>
+        <li><a href="{{url_for('seller')}}">Seller</a></li>
+        <li><a href="{{url_for('checkout')}}">Checkout</a></li>
+        <li><a href="{{url_for('logout')}}">Logout</a></li>
+        <li><button id="see-products">See Products</button></li>
       </ul>
-      {% endif %}
-    {% endwith %}
-  </nav>
-
- 
+      
+       <!-- shows errors if there are any, for example when user tries to access page that requires login -->
+      {% with messages = get_flashed_messages()%}
+        {% if messages %}
+        <ul class="flashes">
+          {% for message in messages %}
+            <li> {{ message }}</li>
+          {% endfor %}
+        </ul>
+        {% endif %}
+      {% endwith %}
+    </nav>
+  </header>
   <!-- shows the offers available at the current moment -->
   <div class="offers">
   {% for offer in offers %}
