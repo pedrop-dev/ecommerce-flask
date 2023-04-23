@@ -9,10 +9,11 @@
 <body>
   <div>
     <h1>Add new product</h1>
-    <form method="post">
+    <form method="post" enctype="multipart/form-data">
       <label for="price">Price</label>
       <input type="number" name="bprice" step="any">
       <input type="text" name="btitle" placeholder="Offer Title">
+      <input type="file" name="bimage" value="Image">
       <input type="submit" value="Create Offer">
     </form>
   </div>

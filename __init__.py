@@ -3,14 +3,22 @@ import os
 import functools
 
 from sqlite3 import IntegrityError
-from flask import Flask, render_template, request, url_for, redirect, session, flash, get_flashed_messages, g
+from flask import Flask, render_template, request, url_for, redirect, session, flash, get_flashed_messages, g, send_from_directory
 from werkzeug.security import check_password_hash, generate_password_hash
+from werkzeug.utils import secure_filename
 
 
 BUYER = 1
 SELLER = 2
 
-def create_new_offer(price: str, title: str, app) -> None:
+ALLOWED_EXTENSIONS_IMG = {'png', 'jpg', 'jpeg', 'svg'}
+UPLOAD_DIRECTORY = 'imgs'
+
+def allowed_filename(filename:str):
+    return '.' in filename and \
+            filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS_IMG
+
+def create_new_offer(img_path: str, price: str, title: str, file, app) -> None:
     from .db import get_db
 
     error = None
@@ -26,13 +34,16 @@ def create_new_offer(price: str, title: str, app) -> None:
 
     try:
         db.execute(
-                "INSERT INTO offer (username, price, offername) VALUES (?, ?, ?)", 
-                (user['username'], price, title)
+                "INSERT INTO offer (username, price, offername, image) VALUES (?, ?, ?, ?)", 
+                (user['username'], price, title, img_path)
                 )
         db.commit()
 
     except:
-        pass
+        error = 'Some error occurred, we are sorry!'
+
+    else:
+        file.save(os.path.join(app.config['UPLOAD_DIRECTORY'], file.filename))
 
     if error is None:
         pass
@@ -106,6 +117,8 @@ def create_app(test_config=None):
             DATABASE=os.path.join(app.instance_path, 'ecommerce.sqlite')
             )
 
+    app.config['UPLOAD_DIRECTORY'] = os.path.join(app.instance_path, UPLOAD_DIRECTORY)
+
     app.secret_key = b'd93284ufdsaf'
     if test_config is None:
         app.config.from_pyfile('config.py', silent=True)
@@ -117,6 +130,12 @@ def create_app(test_config=None):
     try:
         os.makedirs(app.instance_path)
 
+    except OSError:
+        pass
+
+    try:
+        os.makedirs(app.config['UPLOAD_DIRECTORY'])
+        
     except OSError:
         pass
 
@@ -145,11 +164,32 @@ def create_app(test_config=None):
 
         app.logger.debug(f"Loading { g.user } as user")
 
+    @app.route('/img/<name>')
+    def img(name:str):
+        return send_from_directory(app.config['UPLOAD_DIRECTORY'], name)
+
     @app.route("/seller", methods=["GET", "POST"])
     def seller():
         if request.method == 'POST':
-            create_new_offer(request.form['bprice'], request.form['btitle'], app)
+            if 'bimage' not in request.files:
+                flash('Couldn\'t find file part')
+                return redirect(url_for(request.url))
+
+            file = request.files['bimage']
+            if file.filename == '' or file.filename is None:
+                flash('Please select an image to sell your product')
+                return redirect(url_for(request.url))
+
+            if not allowed_filename(file.filename):
+                flash('Filename is not allowed')
+                return redirect(request.url)
+
+            filename = secure_filename(file.filename)
+            create_new_offer(filename, request.form['bprice'], request.form['btitle'],file, app)
             return redirect(url_for('home'))
+            
+
+
         else:
             if g.user is None:
                 return redirect(url_for('login'))

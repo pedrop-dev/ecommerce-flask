@@ -13,7 +13,8 @@ CREATE TABLE offer (
   id INTEGER PRIMARY KEY AUTOINCREMENT,
   username TEXT UNIQUE NOT NULL,
   price FLOAT NOT NULL, 
-  offername TEXT NOT NULL
+  offername TEXT NOT NULL,
+  image TEXT NOT NULL
 );
 
 
