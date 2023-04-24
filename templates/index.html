@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home</title>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
     <link rel="stylesheet" href="{{url_for('static', filename='style/home.css')}}">
     <link rel="stylesheet" href="{{url_for('static', filename='style/mquery.css')}}">
 
@@ -17,7 +18,7 @@
       <p>Logo</p>
     </div>
 
-    <span class="material-icons">menu</span>
+    <span class="material-icons" onclick="showMenu()">menu</span>
 
     <nav class="nav-bar">
       <ul>
@@ -26,7 +27,11 @@
         <li><a href="{{url_for('seller')}}">Seller</a></li>
         <li><a href="{{url_for('checkout')}}">Checkout</a></li>
         <li><a href="{{url_for('logout')}}">Logout</a></li>
-        <li><button id="see-products">See Products</button></li>
+        <li>
+          <span class="material-symbols-outlined">
+            shopping_cart
+          </span>
+        </li>
       </ul>
       
        <!-- shows errors if there are any, for example when user tries to access page that requires login -->

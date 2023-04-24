@@ -39,12 +39,23 @@ header {
 .nav-bar ul li a {
     display: block;
     color: black;
-    padding: 10px 10px;
-    font-size: 1.1em;
+    padding: 15px 15px;
+    font-size: 1em;
     transition: .2s ease-in-out;
 }
 
 .nav-bar ul li a:hover {
     text-decoration: underline;
     color: #464646;
+}
+
+.material-symbols-outlined {
+    cursor: pointer;
+    margin-top: 10px;
+    font-size: 1.5em;
+    font-variation-settings:
+    'FILL' 0,
+    'wght' 400,
+    'GRAD' 0,
+    'opsz' 48
 }

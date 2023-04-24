@@ -122,13 +122,15 @@
     }
 
     .nav-bar {
-        height: 500px;
+        height: 0px;
         width: 100vw;
         position: absolute;
         top: 70px;
         left: 0px;
         right: 0px;
         overflow: hidden;
+        transition: 1s ease-in-out;
+        background-color: white;
     }
 
     .nav-bar.active {
@@ -140,7 +142,7 @@
         display: block;
         margin: 50px auto 0px auto;
         text-align: center;
-        opacity: 1;
+        opacity: 0;
     }
 
     .nav-bar.active ul {
@@ -148,6 +150,17 @@
     }
 
     .nav-bar ul li a {
-        margin-bottom: 40px;
+        margin-bottom: 30px;
+    }
+
+    .material-symbols-outlined {
+        cursor: pointer;
+        font-size: 2em;
+        margin-top: 0px;
+        font-variation-settings:
+        'FILL' 0,
+        'wght' 400,
+        'GRAD' 0,
+        'opsz' 48
     }
 }
