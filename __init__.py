@@ -3,6 +3,7 @@ import os
 import functools
 
 from sqlite3 import IntegrityError
+import json
 from flask import Flask, render_template, request, url_for, redirect, session, flash, get_flashed_messages, g, send_from_directory
 from werkzeug.security import check_password_hash, generate_password_hash
 from werkzeug.utils import secure_filename
@@ -97,12 +98,16 @@ def register_user(username: str, email: str, password: str, userType: int) -> in
     if error is None:
         try:
             db.execute(
-                "INSERT INTO user (username, email, password, userType) VALUES (?, ?, ?, ?)",
-                (username, email, generate_password_hash(password), userType)
+                "INSERT INTO user (username, email, password, userType, shopping_list) VALUES (?, ?, ?, ?, ?)",
+                (username, email, generate_password_hash(password), userType, '[]')
                 )
             db.commit()
         except db.IntegrityError:
             error = f"{username} or {email} is already registered"
+
+        except Exception as e:
+            error = e.__str__()
+
 
         else:
             return 0
@@ -145,7 +150,6 @@ def create_app(test_config=None):
         user_id = session.get('user_id')
         app.logger.debug(f"user_id = {user_id}")
         
-        g.shopping_cart = None
 
         if user_id is None:
             g.user = None
@@ -158,8 +162,6 @@ def create_app(test_config=None):
 
             g.user = user['id']
 
-            if g.shopping_cart is None:
-                g.shopping_cart = list()
 
 
         app.logger.debug(f"Loading { g.user } as user")
@@ -251,11 +253,38 @@ def create_app(test_config=None):
         if request.method == 'POST':
             pass
 
-        return render_template('checkout.html')
 
-    @app.route('/product/<int:id>')
-    def product(id):
         from .db import get_db
+
+        products_json = get_db().execute(
+                "SELECT * FROM user WHERE id = ?", (g.user,)
+                ).fetchone()['shopping_list']
+
+        products = json.loads(products_json)
+        return render_template('checkout.html', products=products)
+
+    @app.route('/product/<int:id>', methods=['GET', 'POST'])
+    def product(id):
+
+        from .db import get_db
+
+        if request.method == 'POST':
+            user = get_db().execute(
+                    "SELECT * FROM user WHERE id = ?", (g.user,)
+                    ).fetchone()
+
+            current_products = json.loads(user['shopping_list'])
+            app.logger.debug(f"\ncurrent_products = {current_products}")
+
+            current_products.append(id)
+            app.logger.debug(f"changed currend_products = {current_products}\n")
+            db = get_db()
+            db.execute("UPDATE user\nSET shopping_list = json(?)\nWHERE id = ?",
+                             (str(current_products),id,))
+            db.commit()
+
+            
+
 
         offer = get_db().execute(
                 "SELECT * FROM offer WHERE id = ?", (id,)
