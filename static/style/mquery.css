@@ -11,6 +11,10 @@
         width: 730px;
     }
 
+    #already-account {
+        display: none;
+    }
+
     .welcome-box {
         height: 100%;
         width: 80%;
@@ -56,6 +60,10 @@
 @media screen and (min-width: 993px) {
     main {
         width: 850px;
+    }
+
+    #already-account {
+        display: none;
     }
 
     .welcome-box {

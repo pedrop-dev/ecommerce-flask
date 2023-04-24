@@ -14,7 +14,7 @@ body{
 }
 
 main {
-    height: 500px;
+    height: 520px;
     width: 275px;
     display: flex;
     justify-content: center;
@@ -117,9 +117,22 @@ main {
     list-style: none;
     color: #ff2121;
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    text-align: center;
 }
 
 .flashes {
     list-style-type: none;
     color: #ff2121;
+    text-align: center;
+}
+
+#already-account {
+    color: black;
+    margin-top: 30px;
+    text-decoration: none;
+}
+
+#already-account:hover {
+    text-decoration: underline;
+    color: #464646;
 }

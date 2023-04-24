@@ -14,7 +14,7 @@ body{
 }
 
 main {
-    height: 450px;
+    height: 470px;
     width: 275px;
     display: flex;
     justify-content: center;
@@ -123,4 +123,16 @@ main {
 .flashes {
     list-style-type: none;
     color: #ff2121;
+    text-align: center;
+}
+
+#already-account {
+    color: black;
+    margin-top: 30px;
+    text-decoration: none;
+}
+
+#already-account:hover {
+    text-decoration: underline;
+    color: #464646;
 }
