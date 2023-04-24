@@ -6,7 +6,8 @@ CREATE TABLE user (
   username TEXT UNIQUE NOT NULL,
   email TEXT UNIQUE NOT NULL,
   userType INTEGER NOT NULL,
-  password TEXT NOT NULL
+  password TEXT NOT NULL,
+  shopping_list JSON
 );
 
 CREATE TABLE offer (
