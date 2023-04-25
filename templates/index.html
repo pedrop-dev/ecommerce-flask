@@ -28,12 +28,12 @@
         <li><a href="{{url_for('checkout')}}">Checkout</a></li>
         <li><a href="{{url_for('logout')}}">Logout</a></li>
         <li>
-          <span class="material-symbols-outlined">
+          <span class="material-symbols-outlined" onclick="openCart()">
             shopping_cart
           </span>
         </li>
       </ul>
-      
+
        <!-- shows errors if there are any, for example when user tries to access page that requires login -->
       {% with messages = get_flashed_messages()%}
         {% if messages %}
@@ -45,8 +45,24 @@
         {% endif %}
       {% endwith %}
     </nav>
+   
+    <div id="cart-disapear">
+      <div id="open-cart">
+        <div id="cart-header">
+          <h3>
+            Your Cart
+          </h3>
+          <span class="material-symbols-outlined close-cart" onclick="closeCart()">
+            close
+          </span>
+        </div>
+        
+        <div class="cart-items">
+
+        </div>
+    </div>
   </header>
-  <!-- shows the offers available at the current moment -->
+
   <section id="section-main-img-container"> 
     <div  id="main-img">
       <h3>
@@ -57,14 +73,14 @@
       </p>
     </div>
   </section>
-
-    <div class="offers">
-    {% for offer in offers %}
-      <ul>
-        <a href=" {{ url_for('product', id=offer['id']) }} "><li> {{ offer['offername'] }} for {{ offer['price']}} </li></a>
-      </ul>
-    {% endfor %}
-    </div>
+  <!-- shows the offers available at the current moment -->
+  <div class="offers">
+  {% for offer in offers %}
+    <ul>
+      <a href=" {{ url_for('product', id=offer['id']) }} "><li> {{ offer['offername'] }} for {{ offer['price']}} </li></a>
+    </ul>
+  {% endfor %}
+  </div>
 
 </body>
 </html>

@@ -160,6 +160,26 @@
     }
 }
 
+/*Cart*/
+
+@media screen and (min-width: 600px) and (max-width: 768px) {
+    #open-cart {
+        width: 350px;
+    }
+}
+
+@media screen and (min-width: 769px) and (max-width: 992px) {
+    #open-cart {
+        width: 350px;
+    }
+}
+
+@media screen and (min-width: 993px) {
+    #open-cart {
+        width: 400px;
+    }
+}
+
 /*Body*/
 
 @media screen and (min-width: 600px) and (max-width: 768px) {
