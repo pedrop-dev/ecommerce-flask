@@ -110,19 +110,6 @@
 /*Home*/
 /*Header*/
 
-
-/*@media screen and (min-width: 600px) and (max-width: 768px) {
-
-}
-
-@media screen and (min-width: 769px) and (max-width: 992px) {
- 
-}
-
-@media screen and (min-width: 993px) {
-
-}*/
-
 @media (max-width: 768px) {
     .material-icons {
         display: block;
@@ -133,12 +120,12 @@
         height: 0px;
         width: 100vw;
         position: absolute;
-        top: 70px;
+        top: 60px;
         left: 0px;
         right: 0px;
         overflow: hidden;
         transition: 1s ease-in-out;
-        background-color: white;
+        background-color: #f0f0f0;
     }
 
     .nav-bar.active {
@@ -172,3 +159,34 @@
         'opsz' 48
     }
 }
+
+/*Body*/
+
+@media screen and (min-width: 600px) and (max-width: 768px) {
+    #main-img {
+
+    }
+}
+
+@media screen and (min-width: 769px) and (max-width: 992px) {
+    #main-img {
+        height: 60vh;
+        padding-left: 120px;
+    }
+
+    #main-img h3 {
+        font-size: 1.3em;
+    }
+}
+
+@media screen and (min-width: 993px) {
+    #main-img {
+        height: 60vh;
+        padding-left: 160px;
+    }
+
+    #main-img h3 {
+        font-size: 1.3em;
+    }
+}
+

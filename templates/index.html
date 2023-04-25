@@ -47,13 +47,24 @@
     </nav>
   </header>
   <!-- shows the offers available at the current moment -->
-  <div class="offers">
-  {% for offer in offers %}
-    <ul>
-      <a href=" {{ url_for('product', id=offer['id']) }} "><li> {{ offer['offername'] }} for {{ offer['price']}} </li></a>
-    </ul>
-  {% endfor %}
-  </div>
+  <section id="section-main-img-container"> 
+    <div  id="main-img">
+      <h3>
+        Products
+      </h3>
+      <p>
+        Lorem ipsum dolor sit amet consectetur <br> adipisicing elit. Dolorem nesciunt illo est <br> quo sapiente harum.
+      </p>
+    </div>
+  </section>
+
+    <div class="offers">
+    {% for offer in offers %}
+      <ul>
+        <a href=" {{ url_for('product', id=offer['id']) }} "><li> {{ offer['offername'] }} for {{ offer['price']}} </li></a>
+      </ul>
+    {% endfor %}
+    </div>
 
 </body>
 </html>

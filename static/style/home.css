@@ -14,7 +14,7 @@ header {
     align-items: center;
     justify-content: space-between;
     padding: 0px 30px;
-    background-color: white;
+    background-color: #f0f0f0;
 }
 
 .logo {
@@ -47,7 +47,7 @@ header {
 
 .nav-bar ul li a:hover {
     text-decoration: underline;
-    color: #464646;
+    color: #3a3a3a;
 }
 
 .material-symbols-outlined {
@@ -64,4 +64,39 @@ header {
 
 .flashes {
     color: #ff2121;
+}
+
+/*Body*/
+
+#section-main-img {
+    height: fit-content;
+    width: 100vw;
+}
+
+#main-img {
+    height: 78vh;
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    padding-left: 70px;
+    background-color: #f0f0f0;
+}
+
+#main-img h3 {
+    margin-bottom: 15px;
+}
+
+#main-img h3::after {
+    content: '';
+    height: 1px;
+    width: 60px;
+    display: block;
+    background-color: black;
+}
+
+#main-img p {
+    line-height: 1.5em;
+    color: #3a3a3a;
 }
