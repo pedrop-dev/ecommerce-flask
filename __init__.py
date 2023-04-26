@@ -218,7 +218,21 @@ def create_app(test_config=None):
                 ).fetchall()
 
 
-        return render_template("index.html", offers=offers)
+        cart_id = list()
+        if g.user is not None:
+            cart_id = json.loads(db.execute(
+                "SELECT * FROM user WHERE id = ?", (g.user,)
+                ).fetchone()['shopping_list'])
+
+        cart = list()
+
+        for item_id in cart_id:
+            item = db.execute(
+                    "SELECT * FROM offer WHERE id = ?", (item_id,)
+                    ).fetchone()
+            cart.append(item)
+
+        return render_template("index.html", offers=offers, cart=cart)
 
     @app.route('/login', methods=['GET', 'POST'])
     def login():

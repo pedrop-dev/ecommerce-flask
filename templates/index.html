@@ -57,7 +57,14 @@
         </div>
         
         <div class="cart-items">
-
+          {% for cart_item in cart %}
+          <div>
+            <p> {{ cart_item['offername'] }} $ {{ cart_item['price'] }}</p>
+            <img src="{{ url_for('img', name=cart_item['image']) }}" alt="No image for product" width=50px height=50px>
+            <br>
+          </div>
+          {% endfor %}
+          <p>Total = $ {{ cart | sum(attribute='price')}}</p>
         </div>
     </div>
   </header>
