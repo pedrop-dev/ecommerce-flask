@@ -8,8 +8,12 @@
 <body>
   <ul>
   {% for product in products %}
-  <li> Product id = {{ product }}</li>
+  <li> Product id = {{ product['id'] }}</li>
+  <img src="{{url_for('img', name=product['image'])}}" alt="Sorry, no image for this product">
   {% endfor %}
   </ul>
+  <form method="POST">
+    <input type="submit" value="Buy">
+  </form>
 </body>
 </html>
