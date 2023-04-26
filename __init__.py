@@ -260,7 +260,15 @@ def create_app(test_config=None):
                 "SELECT * FROM user WHERE id = ?", (g.user,)
                 ).fetchone()['shopping_list']
 
-        products = json.loads(products_json)
+        products_id = json.loads(products_json)
+        products = list()
+
+        for id in products_id:
+            product = get_db().execute(
+                    "SELECT * FROM offer WHERE id = ?", (id,)
+                    ).fetchone()
+            products.append(product)
+
         return render_template('checkout.html', products=products)
 
     @app.route('/product/<int:id>', methods=['GET', 'POST'])

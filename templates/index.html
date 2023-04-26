@@ -73,12 +73,19 @@
     </div>
   </section>
   <!-- shows the offers available at the current moment -->
-  <div class="offers">
-  {% for offer in offers %}
+  <div class="offers-container">
     <ul>
-      <a href=" {{ url_for('product', id=offer['id']) }} "><li> {{ offer['offername'] }} for {{ offer['price']}} </li></a>
+    {% for offer in offers %}
+    <a href=" {{ url_for('product', id=offer['id']) }} ">
+      <li>
+        <div>
+          <img src="{{ url_for('img', name=offer['image'])}}" alt="No image for this product">
+          {{ offer['offername'] }} for $ {{ offer['price']}}
+        </div>
+      </li>
+    </a>
+    {% endfor %}
     </ul>
-  {% endfor %}
   </div>
 
 </body>
