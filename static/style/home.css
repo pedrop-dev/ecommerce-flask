@@ -102,7 +102,7 @@ header {
 }
 
 #cart-disapear {
-    display: block;
+    display: none;
 }
 
 #open-cart {

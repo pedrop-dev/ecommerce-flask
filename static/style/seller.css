@@ -1,0 +1,41 @@
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+}
+
+#seller-form {
+    height: 500px;
+    width: 275px;
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    background-color: #f0f0f0;
+}
+
+#form {
+    display: flex;
+    flex-direction: column;
+}
+
+.ipattern {
+    height: 40px;
+    width: 95%;
+    padding-left: 5px;
+    outline: none;
+    border: none;
+}
+
+.iprice::-webkit-inner-spin-button,
+.iprice::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+}

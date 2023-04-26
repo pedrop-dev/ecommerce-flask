@@ -5,15 +5,39 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="{{url_for('static', filename='style/seller.css')}}">
 </head>
 <body>
-  <div>
-    <h1>Add new product</h1>
-    <form method="post" enctype="multipart/form-data">
-      <label for="price">Price</label>
-      <input type="number" name="bprice" step="any">
-      <input type="text" name="btitle" placeholder="Offer Title">
+  <div id="seller-form">
+    <form method="post" enctype="multipart/form-data" id="form">
+
+      <legend>
+        Add new product
+      </legend>
+
+      <div class="icon-input-box">
+        <label for="iprice">
+            <span class="material-icons">
+              attach_money
+            </span>
+        </label>
+
+        <input type="number" name="bprice" step="any" placeholder="Price of your product" class="iprice ipattern">
+      </div>
+
+      <div class="icon-input-box">
+        <label for="ititle">
+            <span class="material-icons">
+              label
+            </span>
+        </label>
+
+        <input type="text" name="btitle" placeholder="Offer Title" class="ititle ipattern">
+      </div>
+
       <input type="file" name="bimage" value="Image">
+
       <input type="submit" value="Create Offer">
     </form>
   </div>
