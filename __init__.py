@@ -315,6 +315,10 @@ def create_app(test_config=None):
 
         return render_template('product.html', product=offer)
 
+    @app.route('/about')
+    def about():
+        return render_template('about.html')
+
     from . import db
 
     db.init_app(app)

@@ -100,3 +100,18 @@ header {
 #account-menu-disappear {
   display: none;
 }
+
+footer {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+}
+
+footer ul {
+  display: flex;
+}
+
+footer ul li {
+  padding-left: 5px;
+}
+

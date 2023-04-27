@@ -95,5 +95,17 @@
 
   {% block content %}
   {% endblock %}
+
+  <footer id="ifooter">
+    <ul id="footer-left-side">
+      <li><a href="https://github.com/pedrop-dev">Pedro <img src="{{ url_for('static', filename='icons/github.svg')}} " alt="Github" height=20px width=20px></a></li>
+      <li><a href="https://github.com/HeitorRaimundoPrado">Heitor <img src="{{ url_for('static', filename='icons/github.svg') }}" alt="Github" height=20px width=20px></a></li>
+    </ul>
+
+    <p id="itrade-mark">&trade; 2023</p>
+    <ul id="footer-right-side">
+      <li><a href="{{ url_for('about') }}">About Us</a></li>
+    </ul>
+  </footer>
 </body>
 </html>
