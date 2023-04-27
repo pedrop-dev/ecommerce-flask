@@ -4,9 +4,96 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title> {% block title %} {% endblock %} - Ecommerce Flask </title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style/base.css') }}">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    {% block style_imports %}
+    {% endblock %}
+    <script src="{{ url_for('static', filename='script/base.js') }}"></script>
+    {% block script_imports %}
+    {% endblock %}
 </head>
 <body>
-    
+  <header>
+    <div class="logo">
+      <p>Logo</p>
+    </div>
+
+    <!-- <span class="material-icons" onclick="showMenu()">menu</span> -->
+
+    <nav class="nav-bar">
+      <ul>
+        <li><a href="{{url_for('register')}} ">Register</a></li>
+        <li><a href="{{url_for('login')}}">Login</a></li>
+        <li><a href="{{url_for('seller')}}">Seller</a></li>
+        <li><a href="{{url_for('checkout')}}">Checkout</a></li>
+        <li><a href="{{url_for('logout')}}">Logout</a></li>
+        <li>
+          <span class="material-symbols-outlined" onclick="openAccountMenu()"> account_circle </span>
+        </li>
+        <li>
+          <span class="material-symbols-outlined" onclick="openCart()">
+            shopping_cart
+          </span>
+        </li>
+      </ul>
+        
+
+
+       <!-- shows errors if there are any, for example when user tries to access page that requires login -->
+      {% with messages = get_flashed_messages()%}
+        {% if messages %}
+        <ul class="flashes">
+          {% for message in messages %}
+            <li> {{ message }}</li>
+          {% endfor %}
+        </ul>
+        {% endif %}
+      {% endwith %}
+    </nav>
+   
+    <div id="account-menu-disappear" >
+      <div id="account-menu-open">
+        {% if g.user %} 
+          <h3> {{ g.username }} </h3>
+        {% else %}
+          <h3> Not logged in </h3>
+        {% endif %}
+
+        <span class="material-symbols-outlined" onclick="closeAccountMenu()">
+          close
+        </span>
+      </div>
+    </div>
+    <div id="cart-disapear">
+      <div id="open-cart">
+        <div id="cart-header">
+          <h3>
+            Your Cart
+          </h3>
+          <span class="material-symbols-outlined close-cart" onclick="closeCart()">
+            close
+          </span>
+        </div>
+        
+        <div class="cart-items">
+          {% for cart_item in cart %}
+          <div>
+            <p> {{ cart_item['offername'] }} $ {{ cart_item['price'] }}</p>
+            <img src="{{ url_for('img', name=cart_item['image']) }}" alt="No image for product" width=50px height=50px>
+            <br>
+          </div>
+          {% endfor %}
+          {% if g.user %}
+          <p>Total = $ {{ cart | sum(attribute='price')}}</p>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+  </header>
+
+  {% block content %}
+  {% endblock %}
 </body>
 </html>

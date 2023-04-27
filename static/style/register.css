@@ -1,11 +1,4 @@
-* {
-    margin: 0px;
-    padding: 0px;
-    box-sizing: border-box;
-    font-family: Arial, Helvetica, sans-serif;
-}
-
-body{
+#content-wrapper {
     height: 100vh;
     display: flex;
     justify-content: center;

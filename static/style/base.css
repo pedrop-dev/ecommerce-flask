@@ -1,3 +1,4 @@
+
 * {
     margin: 0px;
     padding: 0px;
@@ -27,11 +28,6 @@ header {
 }
 
 
-.material-icons {
-    font-size: 2em;
-    display: none;
-}
-
 .nav-bar ul {
     display: flex;
 }
@@ -60,10 +56,6 @@ header {
     'wght' 400,
     'GRAD' 0,
     'opsz' 48
-}
-
-.flashes {
-    color: #ff2121;
 }
 
 #cart-disapear {
@@ -107,39 +99,4 @@ header {
 
 #account-menu-disappear {
   display: none;
-}
-
-/*Body*/
-
-#section-main-img {
-    height: fit-content;
-    width: 100vw;
-}
-
-#main-img {
-    height: 78vh;
-    width: 100vw;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: flex-start;
-    padding-left: 70px;
-    background-color: #f0f0f0;
-}
-
-#main-img h3 {
-    margin-bottom: 15px;
-}
-
-#main-img h3::after {
-    content: '';
-    height: 1px;
-    width: 60px;
-    display: block;
-    background-color: black;
-}
-
-#main-img p {
-    line-height: 1.5em;
-    color: #3a3a3a;
 }
