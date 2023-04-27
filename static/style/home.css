@@ -68,14 +68,14 @@ header {
 
 /*Body*/
 
-#section-main-img {
+#section-main-img-container {
     height: fit-content;
-    width: 100vw;
+    width: 100%;
 }
 
 #main-img {
     height: 78vh;
-    width: 100vw;
+    width: 100%;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -142,4 +142,32 @@ header {
 
 #account-menu-disappear {
   display: none;
+}
+
+/*Offers avaliable*/
+
+.offers-container {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+}
+
+.product-img-txt {
+    height: 200px;
+    width: 200px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    background-color: white;
+}
+
+.product-img-txt > img {
+    height: 60%;
+    width: 50%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    object-fit: contain;
+    background-repeat: no-repeat;
 }

@@ -27,17 +27,15 @@
         <li><a href="{{url_for('checkout')}}">Checkout</a></li>
         <li><a href="{{url_for('logout')}}">Logout</a></li>
         <li>
-          <span class="material-symbols-outlined" onclick="openAccountMenu()"> account_circle </span>
-        </li>
-        <li>
           <span class="material-symbols-outlined" onclick="openCart()">
             shopping_cart
           </span>
         </li>
+        <li>
+          <span class="material-symbols-outlined" onclick="openAccountMenu()"> account_circle </span>
+        </li>
       </ul>
         
-
-
        <!-- shows errors if there are any, for example when user tries to access page that requires login -->
       {% with messages = get_flashed_messages()%}
         {% if messages %}
@@ -102,18 +100,17 @@
   </section>
   <!-- shows the offers available at the current moment -->
   <div class="offers-container">
-    <ul>
     {% for offer in offers %}
     <a href=" {{ url_for('product', id=offer['id']) }} ">
-      <li>
-        <div>
-          <img src="{{ url_for('img', name=offer['image'])}}" alt="No image for this product">
-          {{ offer['offername'] }} for $ {{ offer['price']}}
-        </div>
-      </li>
+
+      <div class="product-img-txt">
+        <img src="{{ url_for('img', name=offer['image'])}}" alt="No image for this product">
+
+        {{ offer['offername'] }} for $ {{ offer['price']}}
+      </div>
+      
     </a>
     {% endfor %}
-    </ul>
   </div>
 
 </body>
