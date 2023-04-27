@@ -161,6 +161,7 @@ def create_app(test_config=None):
                     ).fetchone()
 
             g.user = user['id']
+            g.username = user['username']
 
 
 
