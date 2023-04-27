@@ -17,3 +17,13 @@ function closeCart() {
     const cartDisapear = document.querySelector('#cart-disapear')
     cartDisapear.style.display = 'none'
 }
+
+function openAccountMenu() {
+    const menuAccountDisappear = document.querySelector('#account-menu-disappear')
+    menuAccountDisappear.style.display = 'block'
+}
+
+function closeAccountMenu() {
+    const menuAccountDisappear = document.querySelector('#account-menu-disappear')
+    menuAccountDisappear.style.display = 'none'
+}
