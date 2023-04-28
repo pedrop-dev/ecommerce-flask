@@ -111,7 +111,7 @@
 /*Header*/
 
 @media (max-width: 768px) {
-    .material-icons {
+    #menu {
         display: block;
         cursor: pointer;
     }
@@ -129,7 +129,7 @@
     }
 
     .nav-bar.active {
-        height: 500px;
+        height: 550px;
     }
 
     .nav-bar ul {
@@ -145,18 +145,40 @@
     }
 
     .nav-bar ul li a {
-        margin-bottom: 30px;
+        margin-bottom: 25px;
     }
 
     .material-symbols-outlined {
         cursor: pointer;
         font-size: 2em;
         margin-top: 0px;
+        margin-bottom: 25px;
         font-variation-settings:
         'FILL' 0,
         'wght' 400,
         'GRAD' 0,
         'opsz' 48
+    }
+}
+
+/*Menu*/
+
+
+@media screen and (min-width: 600px) and (max-width: 768px) {
+    #menu-style {
+        width: 350px;
+    }
+}
+
+@media screen and (min-width: 769px) and (max-width: 992px) {
+    #menu-style {
+        width: 350px;
+    }
+}
+
+@media screen and (min-width: 993px) {
+    #menu-style {
+        width: 400px;
     }
 }
 
@@ -278,3 +300,5 @@
         line-height: 20px;
     }
 }
+
+/*Footer*/
