@@ -8,7 +8,7 @@
 {% block content%}
 <div id="content-wrapper">
   <section id="section-main-img-container"> 
-    <div  id="main-img">
+    <div id="main-img">
       <h3>
         Products
       </h3>
@@ -25,7 +25,9 @@
       <div class="product-img-txt">
         <img src="{{ url_for('img', name=offer['image'])}}" alt="No image for this product">
 
-        {{ offer['offername'] }} for $ {{ offer['price']}}
+        <span>
+          {{ offer['offername'] }} for $ {{ offer['price']}}
+        </span>
       </div>
       
     </a>

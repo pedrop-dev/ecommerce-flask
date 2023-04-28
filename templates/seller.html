@@ -7,6 +7,7 @@
     <title>Document</title>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="{{url_for('static', filename='style/seller.css')}}">
+    <link rel="stylesheet" href="{{url_for('static', filename='style/mquery.css')}}">
 </head>
 <body>
   <div id="seller-form">
@@ -36,10 +37,21 @@
         <input type="text" name="btitle" placeholder="Offer Title" class="ititle ipattern">
       </div>
 
-      <input type="file" name="bimage" value="Image">
-
-      <input type="submit" value="Create Offer">
+      <div id="button-box">
+        <input type="file" name="bimage" value="Image" id="button-add-img">
+        <input type="submit" value="Create Offer" id="button-create">
+      </div>
     </form>
+
+    <div id="seller-box">
+        <h2>
+            Let's start!
+        </h2>
+
+        <p>
+            Here you add your product and start selling
+        </p>
+    </div>
   </div>
     
 </body>

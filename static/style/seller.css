@@ -14,17 +14,35 @@ body {
 }
 
 #seller-form {
+    width: 275px;
     display: flex;
     flex-direction: column;
     background-color: #f0f0f0;
+    box-shadow: 5px 5px 8px #0000001f;
 }
 
 #form {
-    height: 500px;
-    width: 275px;
+    height: 470px;
+    width: 100%;
     display: flex;
     align-items: center;
     flex-direction: column;
+    transition: width .3s, height .3s;
+    transition-timing-function: ease;
+}
+
+#form legend {
+    margin-bottom: 150px;
+    margin-top: 50px;
+    font-size: 1.7em;
+    font-weight: bold;
+    text-align: center;
+}
+
+.icon-input-box {
+    width: 85%;
+    display: flex;
+    margin-bottom: 20px;
 }
 
 .material-icons {
@@ -48,4 +66,40 @@ body {
 .iprice::-webkit-inner-spin-button,
 .iprice::-webkit-outer-spin-button {
     -webkit-appearance: none;
+}
+
+#button-box {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+#button-add-img {
+    height: 40px;
+    width: 90%;
+}
+
+#button-create {
+    height: 40px;
+    width: 90%;
+    background-color: black;
+    color: white;
+    font-weight: bold;
+    letter-spacing: 0.1em;
+    cursor: pointer;
+    border: none;
+    margin-top: 10px;
+    transition: 0.2s;
+}
+
+#button-create:hover {
+    color: black;
+    background-color: white;
+    border: 1px solid black;
+}
+
+#seller-box {
+    display: none;
 }

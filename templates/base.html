@@ -20,7 +20,7 @@
       <p>Logo</p>
     </div>
 
-    <!-- <span class="material-icons" onclick="showMenu()">menu</span> -->
+    <!--<span class="material-icons" onclick="showMenu()">menu</span>-->
 
     <nav class="nav-bar">
       <ul>
@@ -30,12 +30,12 @@
         <li><a href="{{url_for('checkout')}}">Checkout</a></li>
         <li><a href="{{url_for('logout')}}">Logout</a></li>
         <li>
-          <span class="material-symbols-outlined" onclick="openAccountMenu()"> account_circle </span>
-        </li>
-        <li>
           <span class="material-symbols-outlined" onclick="openCart()">
             shopping_cart
           </span>
+        </li>
+        <li>
+          <span class="material-symbols-outlined" onclick="openAccountMenu()"> account_circle </span>
         </li>
       </ul>
         
@@ -79,14 +79,18 @@
         
         <div class="cart-items">
           {% for cart_item in cart %}
-          <div>
-            <p> {{ cart_item['offername'] }} $ {{ cart_item['price'] }}</p>
+          <div class="cart-txt-img">
+            <p>
+               {{ cart_item['offername'] }} $ {{ cart_item['price'] }}
+            </p>
             <img src="{{ url_for('img', name=cart_item['image']) }}" alt="No image for product" width=50px height=50px>
             <br>
           </div>
           {% endfor %}
           {% if g.user %}
-          <p>Total = $ {{ cart | sum(attribute='price')}}</p>
+          <p>
+            Total = $ {{ cart | sum(attribute='price')}}
+          </p>
           {% endif %}
         </div>
       </div>
@@ -98,8 +102,16 @@
 
   <footer id="ifooter">
     <ul id="footer-left-side">
-      <li><a href="https://github.com/pedrop-dev">Pedro <img src="{{ url_for('static', filename='icons/github.svg')}} " alt="Github" height=20px width=20px></a></li>
-      <li><a href="https://github.com/HeitorRaimundoPrado">Heitor <img src="{{ url_for('static', filename='icons/github.svg') }}" alt="Github" height=20px width=20px></a></li>
+      <li>
+        <a href="https://github.com/pedrop-dev">
+          Pedro <img src="{{ url_for('static', filename='icons/github.svg')}} " alt="Github" height=20px width=20px>
+        </a>
+      </li>
+
+      <li>
+        <a href="https://github.com/HeitorRaimundoPrado">Heitor <img src="{{ url_for('static', filename='icons/github.svg') }}" alt="Github" height=20px width=20px>
+        </a>
+      </li>
     </ul>
 
     <p id="itrade-mark">&trade; 2023</p>

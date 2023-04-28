@@ -1,11 +1,9 @@
 /*Body*/
-
 #section-main-img-container {
     height: fit-content;
-    width: 100%;
 }
 
-#main-img {
+div#main-img {
     height: 78vh;
     width: 100%;
     display: flex;
@@ -17,6 +15,7 @@
 }
 
 #main-img h3 {
+    width: fit-content;
     margin-bottom: 15px;
 }
 
@@ -80,22 +79,34 @@
 
 .offers-container {
     width: 100%;
+    height: 300px;
     display: flex;
-    justify-content: space-around;
+    justify-content: center;
+    align-items: center;
 }
 
 .product-img-txt {
-    height: 200px;
+    height: 250px;
     width: 200px;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: space-around;
-    background-color: white;
+    background-color: #f0f0f0;
+    color: black;
 }
 
+/*.product-img-txt span {
+    height: 20%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f0f0f0;
+}*/
+
 .product-img-txt > img {
-    height: 60%;
+    height: 50%;
     width: 50%;
     display: block;
     margin-left: auto;
@@ -103,6 +114,7 @@
     object-fit: contain;
     background-repeat: no-repeat;
 }
+
 /*Body*/
 
 #section-main-img {
