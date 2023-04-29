@@ -66,6 +66,43 @@ header {
     'opsz' 48
 }
 
+
+.icon-input-box {
+    display: flex;
+    box-shadow: 2px 2px 3px #0000001c;
+}
+
+#label-for-search > .material-symbols-outlined {
+    text-align: center;
+    line-height: 30px;
+    margin: 0px;
+    padding: 0px 10px 0px 10px;
+    font-size: 1em;
+    color: #c0c0c0;
+    background-color: whitesmoke;
+}
+
+.ipattern {
+    height: 30px;
+    width: 80%;
+    padding-left: 5px;
+    outline: none;
+    border: none;
+    background-color: whitesmoke;
+}
+
+#go {
+    height: 30px;
+    width: 20%;
+    border: none;
+    background-color: whitesmoke;
+    cursor: pointer;
+    /*outline: 1px solid #f0f0f0;*/
+    box-shadow: 2px 2px 3px #00000002;
+}
+
+/*Cart*/
+
 #cart-disapear {
     display: none;
 }
@@ -183,6 +220,7 @@ header {
 #ifooter a {
     color: #9c9393;
     margin: 10px 0px 10px 0px;
+    font-size: 0.9em;
 }
 
 #ifooter a:hover {
