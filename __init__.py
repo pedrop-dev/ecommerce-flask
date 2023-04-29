@@ -36,12 +36,14 @@ def create_new_offer(img_path: str, price: str, title: str, file, app) -> None:
     try:
         db.execute(
                 "INSERT INTO offer (username, price, offername, image) VALUES (?, ?, ?, ?)", 
-                (user['username'], price, title, img_path)
+                (user['username'], price, title, img_path,)
                 )
         db.commit()
 
-    except:
+    except Exception as e:
         error = 'Some error occurred, we are sorry!'
+        log_error = e.__str__()
+        app.logger.error(f"Error inserting values into database: {log_error}")
 
     else:
         file.save(os.path.join(app.config['UPLOAD_DIRECTORY'], file.filename))
@@ -209,14 +211,22 @@ def create_app(test_config=None):
                 flash(error)
                 return redirect(url_for('home'))
 
-    @app.route("/")
-    def home():
+    @app.route("/", defaults={'search': None})
+    @app.route("/<search>")
+    def home(search: str):
         from .db import get_db
         db = get_db()
 
-        offers = db.execute(
-                "SELECT * FROM offer"
-                ).fetchall()
+        if search is not None and search != '':
+            offers = db.execute(
+                    "SELECT * FROM offer \
+                    WHERE offername LIKE ?", (f"%{search}%",)
+                    ).fetchall()
+
+        else:
+            offers = db.execute(
+                    "SELECT * FROM offer"
+                    ).fetchall()
 
 
         cart_id = list()
@@ -318,6 +328,10 @@ def create_app(test_config=None):
     @app.route('/about')
     def about():
         return render_template('about.html')
+
+    @app.route('/search', methods=['POST'])
+    def search():
+        return redirect(url_for('home', search=request.form['bsearch']))
 
     from . import db
 
