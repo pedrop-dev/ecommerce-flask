@@ -302,3 +302,32 @@
 }
 
 /*Footer*/
+
+
+@media screen and (min-width: 600px) and (max-width: 768px) {
+
+}
+
+@media screen and (min-width: 769px) and (max-width: 992px) {
+    #ifooter {
+        height: 200px;
+        display: flex;
+        justify-content: space-around;
+    }
+
+    #ifooter > div {
+        margin-left: 0px;
+    }
+}
+
+@media screen and (min-width: 993px) {
+    #ifooter {
+        height: 200px;
+        display: flex;
+        justify-content: space-around;
+    }
+
+    #ifooter > div {
+        margin-left: 0px;
+    }
+}
