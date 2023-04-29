@@ -96,7 +96,7 @@
         </div>
         
         <div class="cart-items">
-          {% for cart_item in cart %}
+          {% for cart_item in g.cart %}
           <div class="cart-txt-img">
             <p>
                {{ cart_item['offername'] }} $ {{ cart_item['price'] }}
@@ -107,7 +107,7 @@
           {% endfor %}
           {% if g.user %}
           <p>
-            Total = $ {{ cart | sum(attribute='price')}}
+            Total = $ {{ g.cart | sum(attribute='price')}}
           </p>
           {% endif %}
         </div>
