@@ -7,10 +7,13 @@ function showMenu() {
 
 function openCart() {
     const cartDisapear = document.querySelector('#cart-disapear')
-    //const cartItems = document.querySelector('.cart-items')
+    const menuAccountDisappear = document.querySelector('#account-menu-disappear')
 
+    //Cart appear
     cartDisapear.style.display = 'block'
-    //cartItems.style.display = 'block'
+    //Menu disappear
+    menuAccountDisappear.style.display = 'none'
+
 }
 
 function closeCart() {  
@@ -18,9 +21,16 @@ function closeCart() {
     cartDisapear.style.display = 'none'
 }
 
+//Menu
+
 function openAccountMenu() {
     const menuAccountDisappear = document.querySelector('#account-menu-disappear')
+    const cartDisapear = document.querySelector('#cart-disapear')
+    
+    //Menu appear
     menuAccountDisappear.style.display = 'block'
+    //Cart disappear
+    cartDisapear.style.display = 'none'
 }
 
 function closeAccountMenu() {

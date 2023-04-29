@@ -160,26 +160,47 @@ header {
 }
 
 #ifooter {
-    height: 150px;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    background-color: #111;
+    height: 300px;
+    width: 100%;
+    /*position: absolute;
+    top: 100vh;*/
+    display: grid;
+    padding-top: 50px;
+    grid-template-columns: 1fr 1fr;
+    background-color: black;
 }
 
-#ifooter p, a {
+#ifooter > div {
+    display: flex;
+    flex-direction: column;
+    margin: 0px 0px 0px 30%;
+}
+
+#ifooter > div > h4 {
     color: white;
 }
+
+#ifooter a {
+    color: #9c9393;
+    margin: 10px 0px 10px 0px;
+}
+
+#ifooter a:hover {
+    text-decoration: underline;
+}
+
 #footer-logo > p {
     font-size: 1.5em;
     font-weight: bold;
     font-family: Georgia, 'Times New Roman', Times, serif;
+    color: white;
 }
 
 #social-links > a > img {
     color: #f0f0f0;
 }
 
-footer img {
-  filter: invert(100%) sepia(0%) saturate(7474%) hue-rotate(25deg) brightness(103%) contrast(105%);
+#itrade-mark {
+    margin: 10px 0px 10px 0px;
+    color: #9c9393;
 }
