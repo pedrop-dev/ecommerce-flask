@@ -51,15 +51,6 @@
 
 
        <!-- shows errors if there are any, for example when user tries to access page that requires login -->
-      {% with messages = get_flashed_messages()%}
-        {% if messages %}
-        <ul class="flashes">
-          {% for message in messages %}
-            <li> {{ message }}</li>
-          {% endfor %}
-        </ul>
-        {% endif %}
-      {% endwith %}
     </nav>
    
     <div id="account-menu-disappear" >
