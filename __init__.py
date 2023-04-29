@@ -217,6 +217,7 @@ def create_app(test_config=None):
 
         else:
             if g.user is None:
+                flash('You must be logged in as a seller to sell in this website')
                 return redirect(url_for('login'))
 
 
@@ -236,6 +237,7 @@ def create_app(test_config=None):
     def home(search: str):
         from .db import get_db
         db = get_db()
+        # flash('Testing error messages')
 
         if search is not None and search != '':
             offers = db.execute(
@@ -282,6 +284,10 @@ def create_app(test_config=None):
 
     @app.route("/checkout", methods=['GET', 'POST'])
     def checkout():
+        if g.user is None:
+            flash("You must be logged in to checkout")
+            return redirect(url_for('login'))
+
         if request.method == 'POST':
             pass
 

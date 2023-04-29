@@ -10,12 +10,28 @@
 <div id="content-wrapper">
   <section id="section-main-img-container"> 
     <div id="main-img">
-      <h3>
-        Products
-      </h3>
-      <p>
-        Lorem ipsum dolor sit amet consectetur <br> adipisicing elit. Dolorem nesciunt illo est <br> quo sapiente harum.
-      </p>
+      <div id="main-img-row">
+        <div id="product-text">
+          <h3>
+            Products
+          </h3>
+          <p>
+            Lorem ipsum dolor sit amet consectetur <br> adipisicing elit. Dolorem nesciunt illo est <br> quo sapiente harum.
+          </p>
+          
+        </div>
+        <div id="iflashes">
+          {% with messages = get_flashed_messages()%}
+            {% if messages %}
+            <ul class="flashes">
+              {% for message in messages %}
+                <li> {{ message }}</li>
+              {% endfor %}
+            </ul>
+            {% endif %}
+          {% endwith %}
+        </div>
+      </div>
     </div>
   </section>
   <!-- shows the offers available at the current moment -->
