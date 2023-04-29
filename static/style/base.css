@@ -161,6 +161,8 @@ header {
 #ifooter {
     height: 300px;
     width: 100%;
+    /*position: absolute;
+    top: 100vh;*/
     display: grid;
     padding-top: 50px;
     grid-template-columns: 1fr 1fr;
@@ -170,7 +172,6 @@ header {
 #ifooter > div {
     display: flex;
     flex-direction: column;
-    margin-left: 35%;
     margin: 0px 0px 0px 30%;
 }
 
@@ -180,8 +181,13 @@ header {
 
 #ifooter a {
     color: #9c9393;
-    margin: 5px 0px 5px 0px;
+    margin: 10px 0px 10px 0px;
 }
+
+#ifooter a:hover {
+    text-decoration: underline;
+}
+
 #footer-logo > p {
     font-size: 1.5em;
     font-weight: bold;
@@ -194,6 +200,6 @@ header {
 }
 
 #itrade-mark {
-    margin: 5px 0px 5px 0px;
+    margin: 10px 0px 10px 0px;
     color: #9c9393;
 }

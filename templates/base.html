@@ -6,7 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title> {% block title %} {% endblock %} - Ecommerce Flask </title>
     <link rel="stylesheet" href="{{ url_for('static', filename='style/base.css') }}">
+
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
     {% block style_imports %}
     {% endblock %}
@@ -111,11 +113,32 @@
 
       <a href="https://github.com/pedrop-dev">
         <!--<img src="{{ url_for('static', filename='icons/github.svg')}} " alt="Github" height=20px width=20px>-->
+        
         Pedro
       </a>
       <a href="https://github.com/HeitorRaimundoPrado">
         <!--<img src="{{ url_for('static', filename='icons/github.svg') }}" alt="Github" height=20px width=20px>-->
+        
         Heitor
+      </a>
+    </div>
+
+    
+    <div id="social-links">
+      <h4>Get in touch</h4>
+      
+      <a href="#" class="acenter">
+        <!--<span class="material-symbols-outlined mail">
+          mail
+        </span>-->
+        heitorrdpp@gmail.com
+      </a>
+    
+      <a href="#" class="acenter">
+        <!--<span class="material-symbols-outlined mail">
+          mail
+        </span>-->
+        pedroh.ps0102@gmail.com
       </a>
     </div>
       
@@ -125,10 +148,6 @@
       <p id="itrade-mark">&trade; 2023</p>
       
       <a href="{{ url_for('about') }}">About Us</a>
-    </div>
-
-    <div id="social-links">
-      <h4>Get in touch</h4>
     </div>
   </footer>
 </body>
