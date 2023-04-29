@@ -179,3 +179,7 @@ header {
 #social-links > a > img {
     color: #f0f0f0;
 }
+
+footer img {
+  filter: invert(100%) sepia(0%) saturate(7474%) hue-rotate(25deg) brightness(103%) contrast(105%);
+}
