@@ -12,7 +12,7 @@ CREATE TABLE user (
 
 CREATE TABLE offer (
   id INTEGER PRIMARY KEY AUTOINCREMENT,
-  username TEXT UNIQUE NOT NULL,
+  username TEXT NOT NULL,
   price FLOAT NOT NULL, 
   offername TEXT NOT NULL,
   image TEXT NOT NULL

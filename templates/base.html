@@ -24,6 +24,13 @@
 
     <span class="material-icons" id="menu" onclick="showMenu()">menu</span>
 
+    <div>
+      <form action="{{ url_for('search') }}" method="POST">
+        <input type="text" name="bsearch" placeholder="Search">
+        <input type="submit"  value="Go">
+      </form>
+    </div>
+
     <nav class="nav-bar">
       <ul>
         <li><a href="{{url_for('register')}} ">Register</a></li>
