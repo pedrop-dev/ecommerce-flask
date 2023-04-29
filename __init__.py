@@ -169,6 +169,26 @@ def create_app(test_config=None):
 
         app.logger.debug(f"Loading { g.user } as user")
 
+    @app.before_request
+    def load_cart():
+        from .db import get_db
+        
+        cart_id = list()
+
+        db = get_db()
+        if g.user is not None:
+            cart_id = json.loads(db.execute(
+                "SELECT * FROM user WHERE id = ?", (g.user,)
+                ).fetchone()['shopping_list'])
+
+        g.cart = list()
+
+        for item_id in cart_id:
+            item = db.execute(
+                    "SELECT * FROM offer WHERE id = ?", (item_id,)
+                    ).fetchone()
+            g.cart.append(item)
+
     @app.route('/img/<name>')
     def img(name:str):
         return send_from_directory(app.config['UPLOAD_DIRECTORY'], name)
@@ -229,21 +249,8 @@ def create_app(test_config=None):
                     ).fetchall()
 
 
-        cart_id = list()
-        if g.user is not None:
-            cart_id = json.loads(db.execute(
-                "SELECT * FROM user WHERE id = ?", (g.user,)
-                ).fetchone()['shopping_list'])
 
-        cart = list()
-
-        for item_id in cart_id:
-            item = db.execute(
-                    "SELECT * FROM offer WHERE id = ?", (item_id,)
-                    ).fetchone()
-            cart.append(item)
-
-        return render_template("index.html", offers=offers, cart=cart)
+        return render_template("index.html", offers=offers)
 
     @app.route('/login', methods=['GET', 'POST'])
     def login():
@@ -313,7 +320,7 @@ def create_app(test_config=None):
             app.logger.debug(f"changed currend_products = {current_products}\n")
             db = get_db()
             db.execute("UPDATE user\nSET shopping_list = json(?)\nWHERE id = ?",
-                             (str(current_products),id,))
+                             (str(current_products),g.user,))
             db.commit()
 
             
