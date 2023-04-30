@@ -9,7 +9,7 @@
 }
 
 header {
-    height: 60px;
+    height: 70px;
     width: 100%;
     display: flex;
     align-items: center;
@@ -33,7 +33,7 @@ header {
 
 .logo p {
     font-family: Georgia, 'Times New Roman', Times, serif;
-  color: black;
+    color: black;
 }
 
 .nav-bar ul {
@@ -66,7 +66,6 @@ header {
     'opsz' 48
 }
 
-
 .icon-input-box {
     display: flex;
     box-shadow: 2px 2px 3px #0000001c;
@@ -74,7 +73,7 @@ header {
 
 #label-for-search > .material-symbols-outlined {
     text-align: center;
-    line-height: 30px;
+    line-height: 35px;
     margin: 0px;
     padding: 0px 10px 0px 10px;
     font-size: 1em;
@@ -83,7 +82,7 @@ header {
 }
 
 .ipattern {
-    height: 30px;
+    height: 35px;
     width: 80%;
     padding-left: 5px;
     outline: none;
@@ -92,12 +91,11 @@ header {
 }
 
 #go {
-    height: 30px;
+    height: 35px;
     width: 20%;
     border: none;
     background-color: whitesmoke;
     cursor: pointer;
-    /*outline: 1px solid #f0f0f0;*/
     box-shadow: 2px 2px 3px #00000002;
 }
 
@@ -118,8 +116,6 @@ header {
     right: 0vw;
     background-color: whitesmoke;
     box-shadow: 8px 8px 15px #00000080;
-    transition: width .3s, height .3s;
-    transition-timing-function: ease;
 }
 
 #cart-header {

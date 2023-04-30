@@ -29,7 +29,7 @@ div#main-img {
 
 #main-img p {
     line-height: 1.5em;
-    color: #3a3a3a;
+    color: #9c9393;
 }
 
 #cart-disapear {
@@ -79,10 +79,11 @@ div#main-img {
 
 .offers-container {
     width: 100%;
-    height: 300px;
+    height: fit-content;
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-wrap: wrap;
 }
 
 .product-img-txt {
@@ -92,8 +93,10 @@ div#main-img {
     flex-direction: column;
     align-items: center;
     justify-content: space-around;
+    margin: 20px 10px 20px 10px;
     background-color: #f0f0f0;
     color: black;
+    box-shadow: 2px 2px 5px #0000001c;
 }
 
 /*.product-img-txt span {
