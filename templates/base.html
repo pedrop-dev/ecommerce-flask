@@ -24,7 +24,7 @@
       </div>
     </a>
 
-    <form action="{{ url_for('search') }}" method="POST" class="icon-input-box">
+    <form action="{{ url_for('search') }}" method="POST" class="icon-input-box-search" id="isearch-box">
 
       <label for="isearch" id="label-for-search">
         <span class="material-symbols-outlined">
@@ -32,7 +32,7 @@
         </span>
       </label>
       
-      <input type="text" name="bsearch" placeholder="Search" id="isearch" class="ipattern">
+      <input type="text" name="bsearch" placeholder="Search" id="isearch" class="ipattern-search" id="i-search">
 
       <input type="submit" value="Go" id="go">
     </form>

@@ -66,7 +66,12 @@ header {
     'opsz' 48
 }
 
-.icon-input-box {
+.icon-input-box-search {
+    display: flex;
+    box-shadow: 2px 2px 3px #0000001c;
+}
+
+#isearch-box {
     display: flex;
     box-shadow: 2px 2px 3px #0000001c;
 }
@@ -81,14 +86,24 @@ header {
     background-color: whitesmoke;
 }
 
-.ipattern {
+.ipattern-search {
     height: 35px;
-    width: 80%;
+    width: 90%;
     padding-left: 5px;
     outline: none;
     border: none;
     background-color: whitesmoke;
 }
+
+#i-search {
+    height: 35px;
+    width: 90%;
+    padding-left: 5px;
+    outline: none;
+    border: none;
+    background-color: whitesmoke;
+}
+
 
 #go {
     height: 35px;
