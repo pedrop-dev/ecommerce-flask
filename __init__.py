@@ -7,6 +7,7 @@ import json
 from flask import Flask, render_template, request, url_for, redirect, session, flash, get_flashed_messages, g, send_from_directory
 from werkzeug.security import check_password_hash, generate_password_hash
 from werkzeug.utils import secure_filename
+import stripe
 
 
 BUYER = 1
@@ -14,6 +15,8 @@ SELLER = 2
 
 ALLOWED_EXTENSIONS_IMG = {'png', 'jpg', 'jpeg', 'svg'}
 UPLOAD_DIRECTORY = 'imgs'
+
+stripe.api_key = os.environ['STRIPE_SECRET_KEY']
 
 def allowed_filename(filename:str):
     return '.' in filename and \
@@ -289,7 +292,53 @@ def create_app(test_config=None):
             return redirect(url_for('login'))
 
         if request.method == 'POST':
-            pass
+            from .db import get_db
+
+            db = get_db()
+
+            stripe_cart = list()
+
+            for cart_item in g.cart:
+                # cart_item = db.execute(
+                #         "SELECT * FROM offer WHERE id = ?", (str(cart_item_id),)
+                #         ).fetchone()
+
+                # app.logger.debug(f'cart_item_id = {cart_item_id}')
+
+                stripe_cart.append({
+                    'price_data' : {
+                        'product_data': {
+                            'name': cart_item['offername']
+                            },
+                        'unit_amount': int(cart_item['price']*100),
+                        'currency': 'usd',
+                        },
+                    'quantity': 1,
+                    })
+
+            try:
+                db.execute(
+                        "UPDATE user SET shopping_list = json(?) WHERE id = ?", (str([]), g.user)
+                        )
+                db.commit()
+
+            except Exception as e:
+                flash('Some error occurred, we are sorry!')
+                app.logger.debug(e.__str__())
+                return url_for('home')
+
+            else:
+                pass
+                
+            checkout_session = stripe.checkout.Session.create(
+                    line_items=stripe_cart,
+                    payment_method_types=['card'],
+                    mode='payment',
+                    success_url=request.host_url + 'checkout/success',
+                    cancel_url=request.host_url + 'checkout/cancel'
+                    )
+
+            return redirect(checkout_session.url)
 
 
         from .db import get_db
@@ -345,6 +394,14 @@ def create_app(test_config=None):
     @app.route('/search', methods=['POST'])
     def search():
         return redirect(url_for('home', search=request.form['bsearch']))
+
+    @app.route('/checkout/success')
+    def checkout_success():
+        return render_template('success.html')
+
+    @app.route('/checkout/cancel')
+    def checkout_cancel():
+        return render_template('cancel.html')
 
     from . import db
 
