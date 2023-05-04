@@ -18,13 +18,13 @@
 </head>
 <body>
   <header>
-    <a href=" {{url_for('home')}}">
+    <a href=" {{url_for('main.home')}}">
       <div class="logo">
         <p>Logo</p>
       </div>
     </a>
 
-    <form action="{{ url_for('search') }}" method="POST" class="icon-input-box-search" id="isearch-box">
+    <form action="{{ url_for('main.search') }}" method="POST" class="icon-input-box-search" id="isearch-box">
 
       <label for="isearch" id="label-for-search">
         <span class="material-symbols-outlined">
@@ -43,11 +43,11 @@
 
     <nav class="nav-bar">
       <ul>
-        <li><a href="{{url_for('register')}} ">Register</a></li>
-        <li><a href="{{url_for('login')}}">Login</a></li>
-        <li><a href="{{url_for('seller')}}">Seller</a></li>
-        <li><a href="{{url_for('checkout')}}">Checkout</a></li>
-        <li><a href="{{url_for('logout')}}">Logout</a></li>
+        <li><a href="{{url_for('auth.register')}} ">Register</a></li>
+        <li><a href="{{url_for('auth.login')}}">Login</a></li>
+        <li><a href="{{url_for('seller.seller')}}">Seller</a></li>
+        <li><a href="{{url_for('main.checkout')}}">Checkout</a></li>
+        <li><a href="{{url_for('auth.logout')}}">Logout</a></li>
         <li>
           <span class="material-symbols-outlined" onclick="openCart()">
             shopping_cart
@@ -92,7 +92,7 @@
             <p>
                {{ cart_item['offername'] }} $ {{ cart_item['price'] }}
             </p>
-            <img src="{{ url_for('img', name=cart_item['image']) }}" alt="No image for product" width=50px height=50px>
+            <img src="{{ url_for('main.img', name=cart_item['image']) }}" alt="No image for product" width=50px height=50px>
             <br>
           </div>
           {% endfor %}
@@ -153,7 +153,7 @@
 
       <p id="itrade-mark">&trade; 2023</p>
       
-      <a href="{{ url_for('about') }}">About Us</a>
+      <a href="{{ url_for('main.about') }}">About Us</a>
     </div>
   </footer>
 </body>
