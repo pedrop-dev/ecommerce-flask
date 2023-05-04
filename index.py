@@ -9,12 +9,13 @@ bp = Blueprint('main', __name__)
 def img(name:str):
     return send_from_directory(current_app.config['UPLOAD_DIRECTORY'], name)
 
-@bp.route("/", defaults={'search': None})
-@bp.route("/<search>")
-def home(search: str):
+@bp.route("/")
+def home():
     from .db import get_db
     db = get_db()
     # flash('Testing error messages')
+
+    search = request.args.get('search')
 
     if search is not None and search != '':
         offers = db.execute(
