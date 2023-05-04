@@ -1,14 +1,23 @@
 {% extends 'base.html' %}
 {% block title %} Product {{ product['offername']}} {% endblock %}
 {% block style_imports %}
+<link rel="stylesheet" href="{{url_for('static', filename='style/product.css')}}">
+<link rel="stylesheet" href="{{url_for('static', filename='style/mquery.css')}}">
+
 {% endblock %}
 {% block content %}
 <div id="content-wrapper">
-  <h1>Page for {{ product['offername']}} </h1>
-  <img src="{{ url_for('img', name=product['image']) }}" alt="Sorry, no image found!" width=300px height=300px>
-  <form method="POST">
+  
+  <div id="img-box">
+    <img src="{{ url_for('img', name=product['image']) }}" alt="Sorry, no image found!" width="300px" height="300px">
+  </div>
+
+  <form method="POST" id="content-box">
+    <h3>Page for {{ product['offername']}}</h3>
+
     <input type="submit" value="Add To Chart">
   </form>
+
 </div>
 {% endblock %}
 <!DOCTYPE html>
