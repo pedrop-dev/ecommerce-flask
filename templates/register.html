@@ -62,7 +62,7 @@
                 {% endwith %}
             </div>
 
-            <a href="{{ url_for('login')}}" id="already-account">Already have an account?</a>
+            <a href="{{ url_for('auth.login')}}" id="already-account">Already have an account?</a>
         </section>
 
         <section class="welcome-box">
@@ -74,7 +74,7 @@
                 To keep connected with us please login with your personal info
             </p>
 
-            <a href="{{ url_for('login')}}">Sign In</a>
+            <a href="{{ url_for('auth.login')}}">Sign In</a>
         </section>
     </main>
 </div>

@@ -37,10 +37,10 @@
   <!-- shows the offers available at the current moment -->
   <div class="offers-container">
     {% for offer in offers %}
-    <a href=" {{ url_for('product', id=offer['id']) }} ">
+    <a href=" {{ url_for('main.product', id=offer['id']) }} ">
 
       <div class="product-img-txt">
-        <img src="{{ url_for('img', name=offer['image'])}}" alt="No image for this product">
+        <img src="{{ url_for('main.img', name=offer['image'])}}" alt="No image for this product">
 
         <span>
           {{ offer['offername'] }} for $ {{ offer['price']}}
