@@ -5,7 +5,7 @@
   <ul>
   {% for product in products %}
   <li> Product id = {{ product['id'] }}</li>
-  <img src="{{url_for('img', name=product['image'])}}" alt="Sorry, no image for this product">
+  <img src="{{url_for('main.img', name=product['image'])}}" alt="Sorry, no image for this product">
   {% endfor %}
   </ul>
   <p>Total = $ {{ products | sum(attribute='price')}}</p>

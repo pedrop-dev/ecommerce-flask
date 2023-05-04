@@ -19,7 +19,7 @@
               Enter you personal details and start a journey with us
           </p>
 
-          <a href="{{ url_for('register') }}">Sign Up</a>
+          <a href="{{ url_for('auth.register') }}">Sign Up</a>
         </section>
 
         <section id="register-box">
@@ -57,7 +57,7 @@
                 {% endif %}
               {% endwith %}
             </section>
-            <a href="{{ url_for('register')}}" id="already-account">Still don't have an account?</a>
+            <a href="{{ url_for('auth.register')}}" id="already-account">Still don't have an account?</a>
         </section>
     </main>
 </div>

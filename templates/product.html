@@ -5,7 +5,7 @@
 {% block content %}
 <div id="content-wrapper">
   <h1>Page for {{ product['offername']}} </h1>
-  <img src="{{ url_for('img', name=product['image']) }}" alt="Sorry, no image found!" width=300px height=300px>
+  <img src="{{ url_for('main.img', name=product['image']) }}" alt="Sorry, no image found!" width=300px height=300px>
   <form method="POST">
     <input type="submit" value="Add To Chart">
   </form>
