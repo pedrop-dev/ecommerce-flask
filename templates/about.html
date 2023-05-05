@@ -1,12 +1,81 @@
 <!--Responsivity test-->
-<link rel="stylesheet" href="{{url_for('static', filename='style/mquery.css')}}">
 {% block style_imports %}
+<link rel="stylesheet" href="{{url_for('static', filename='style/mquery.css')}}">
+<link rel="stylesheet" href="{{ url_for('static', filename='style/about.css') }}">
 {% endblock %}
 
 {% extends 'base.html' %}
 {% block title %} About {% endblock %}
 {% block content %}
-<div>
-  <h1>About Us</h1>
-</div>
+<main>
+  <h2>About Us</h2>
+
+  <section class="vision about-boxes">
+    <div class="txt-description">
+      <h3>
+        Our Vision
+      </h3>
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate officia, ratione natus dolorem officiis repellat dicta adipisci cumque cum eos vitae
+      </p>
+      <br>
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Earum saepe assumenda praesentium quae dicta minima? Exercitationem culpa consectetur temporibus beatae eum error dolorum similique magnam! Eaque numquam fuga aliquid dolore.
+      </p>
+      <br>
+      <p>
+        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ipsum, modi. Harum commodi laborum minima corrupti.
+      </p>
+    </div>
+
+    <div class="black-box">
+    </div>
+  </section>
+
+  <section class="approch about-boxes">
+    <div class="black-box">
+
+    </div>
+
+    <div class="txt-description">
+      <h3>
+        Our Approch
+      </h3>
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate officia, ratione natus dolorem officiis repellat dicta adipisci cumque cum eos vitae
+      </p>
+      <br>
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Earum saepe assumenda praesentium quae dicta minima? Exercitationem culpa consectetur temporibus beatae eum error dolorum similique magnam! Eaque numquam fuga aliquid dolore.
+      </p>
+      <br>
+      <p>
+        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ipsum, modi. Harum commodi laborum minima corrupti.
+      </p>
+    </div>
+  </section>
+
+  <section class="process about-boxes">
+    <div class="txt-description">
+      <h3>
+        Our Process
+      </h3>
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate officia, ratione natus dolorem officiis repellat dicta adipisci cumque cum eos vitae
+      </p>
+      <br>
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Earum saepe assumenda praesentium quae dicta minima? Exercitationem culpa consectetur temporibus beatae eum error dolorum similique magnam! Eaque numquam fuga aliquid dolore.
+      </p>
+      <br>
+      <p>
+        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ipsum, modi. Harum commodi laborum minima corrupti.
+      </p>
+    </div>
+
+    <div class="black-box">
+
+    </div>
+  </section>
+</main>
 {% endblock %}

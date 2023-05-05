@@ -209,8 +209,6 @@ header {
 #ifooter {
     height: 300px;
     width: 100%;
-    /*position: absolute;
-    top: 100vh;*/
     display: grid;
     padding-top: 50px;
     grid-template-columns: 1fr 1fr;

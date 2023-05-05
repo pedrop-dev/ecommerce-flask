@@ -1,0 +1,34 @@
+* {
+    padding: 0px; 
+    margin: 0px;
+    box-sizing: border-box;
+}
+
+main {
+    width: 85vw;
+    padding: 20px;
+    margin: 0px auto;
+    padding-bottom: 100px;
+    background-color: white;
+}
+
+.about-boxes {
+    height: fit-content;
+    margin: 30px 0px 20px 0px;
+}
+
+.about-boxes > .txt-description {
+    text-align: justify;
+}
+
+.about-boxes > .txt-description > h3 {
+    margin-bottom: 10px;
+}
+
+.about-boxes > .txt-description > p {
+    color: #2e2e2e;
+}
+
+.black-box {
+    background-color: black;
+}

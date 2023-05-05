@@ -303,9 +303,11 @@
 
 /*Footer*/
 
-
 @media screen and (min-width: 600px) and (max-width: 768px) {
-
+    #ifooter {
+        position: relative;
+        top: 100%;
+    }
 }
 
 @media screen and (min-width: 769px) and (max-width: 992px) {
@@ -329,5 +331,70 @@
 
     #ifooter > div {
         margin-left: 0px;
+    }
+}
+
+/*About Page*/
+
+@media screen and (min-width: 600px) and (max-width: 768px) {
+    .about-boxes {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .about-boxes > .txt-description {
+        width: 55%;
+    }
+
+    .black-box {
+        height: 330px;
+        width: 40%;
+        display: block;
+        background-color: black;
+    }
+}
+
+@media screen and (min-width: 769px) and (max-width: 992px) {
+    main {
+        width: 80vw;
+    }
+
+    .about-boxes {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .about-boxes > .txt-description {
+        width: 55%;
+    }
+
+    .black-box {
+        height: 270px;
+        width: 40%;
+        display: block;
+        background-color: black;
+    }
+}
+
+@media (min-width: 993px) {
+    main {
+        width: 70vw;
+        margin: 0px auto 0px auto;
+    }
+
+    .about-boxes {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .about-boxes > .txt-description {
+        width: 55%;
+    }
+
+    .black-box {
+        height: 210px;
+        width: 40%;
+        display: block;
+        background-color: black;
     }
 }
