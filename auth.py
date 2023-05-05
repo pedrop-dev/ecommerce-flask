@@ -70,6 +70,10 @@ def register_user(username: str, email: str, password: str, userType: int) -> in
 
 @bp.route('/login', methods=['GET', 'POST'])
 def login():
+    if g.user is not None:
+        flash('User already logged in')
+        return redirect(url_for('main.home'))
+
     if request.method == 'POST':
         if login_user(request.form['bemail'], request.form['bpassword']):
             return redirect(url_for("auth.login"))
@@ -82,6 +86,10 @@ def login():
 
 @bp.route("/register", methods=['GET', 'POST'])
 def register():
+    if g.user is not None:
+        flash('User already logged in')
+        return redirect(url_for('main.home'))
+
     if request.method == "POST":
         if register_user(request.form['busername'], request.form['bemail'], request.form['bpassword'], int(request.form['busertype'])) == 0: # No errors
             return redirect(url_for("auth.login"))
