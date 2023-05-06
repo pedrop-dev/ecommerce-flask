@@ -20,6 +20,12 @@ function closeCart() {
     cartDisapear.style.display = 'none'
 }
 
+function addToCart() {
+    const cartItems = document.querySelector(".cart-items")
+
+    
+}
+
 //Menu
 
 function openAccountMenu() {
