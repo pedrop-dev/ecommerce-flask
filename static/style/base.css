@@ -103,7 +103,6 @@ header {
     background-color: whitesmoke;
 }
 
-
 #go {
     height: 35px;
     width: 20%;
@@ -174,6 +173,8 @@ header {
     background-repeat: no-repeat;
 }
 
+/*Menu*/
+
 #account-menu-disappear {
   display: none;
 }
@@ -205,6 +206,22 @@ header {
     font-size: 1.8em;
     margin-bottom: 7px;
 }
+
+#menu-content > ul > li {
+    margin-bottom: 60px;
+}
+
+#menu-content > ul > li > a {
+    padding: 10px;
+    color: black;
+}
+
+#menu-content > ul > li > a:hover {
+    text-decoration: underline;
+    color: #3a3a3a;
+}
+
+/*Footer*/
 
 #ifooter {
     height: 300px;

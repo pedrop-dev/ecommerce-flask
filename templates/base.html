@@ -43,14 +43,14 @@
 
     <nav class="nav-bar">
       <ul>
-        {% if g.user is none %}
+        <!--{% if g.user is none %}
           <li><a href="{{url_for('auth.register')}} ">Register</a></li>
           <li><a href="{{url_for('auth.login')}}">Login</a></li>
         {% else %}
           <li><a href="{{url_for('auth.logout')}}">Logout</a></li>
         {% endif %}
         <li><a href="{{url_for('seller.seller')}}">Seller</a></li>
-        <li><a href="{{url_for('main.checkout')}}">Checkout</a></li>
+        <li><a href="{{url_for('main.checkout')}}">Checkout</a></li>-->
         <li>
           <span class="material-symbols-outlined" onclick="openCart()">
             shopping_cart
@@ -75,6 +75,18 @@
           <span class="material-symbols-outlined" onclick="closeAccountMenu()">
             close
           </span>
+      </div>
+      <div id="menu-content">
+        <ul>
+          {% if g.user is none %}
+          <li><a href="{{url_for('auth.register')}} ">Register</a></li>
+          <li><a href="{{url_for('auth.login')}}">Login</a></li>
+          {% else %}
+          <li><a href="{{url_for('auth.logout')}}">Logout</a></li>
+          {% endif %}
+          <li><a href="{{url_for('seller.seller')}}">Seller</a></li>
+          <li><a href="{{url_for('main.checkout')}}">Checkout</a></li>
+        </ul>
       </div>
       </div>
     </div>
