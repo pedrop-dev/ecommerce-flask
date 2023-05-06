@@ -50,11 +50,13 @@
           <li><a href="{{url_for('auth.logout')}}">Logout</a></li>
         {% endif %}
         <li><a href="{{url_for('seller.seller')}}">Seller</a></li>
-        <li><a href="{{url_for('main.checkout')}}">Checkout</a></li>-->
-        <li>
-          <span class="material-symbols-outlined" onclick="openCart()">
-            shopping_cart
-          </span>
+        <li><a href="{{url_for('main.checkout')}}">Checkout</a></li>
+        <li>-->
+        <li><a href="{{ url_for('main.home') }}" target="_self">Home</a></li>
+        <li><a href="{{url_for('seller.seller')}}" target="_self">Seller</a></li>
+        <span class="material-symbols-outlined" onclick="openCart()">
+          shopping_cart
+        </span>
         </li>
         <li>
           <span class="material-symbols-outlined" onclick="openAccountMenu()"> account_circle </span>
@@ -79,13 +81,12 @@
       <div id="menu-content">
         <ul>
           {% if g.user is none %}
-          <li><a href="{{url_for('auth.register')}} ">Register</a></li>
-          <li><a href="{{url_for('auth.login')}}">Login</a></li>
+          <li><a href="{{url_for('auth.register')}}" target="_self">Register</a></li>
+          <li><a href="{{url_for('auth.login')}}" target="_self">Login</a></li>
           {% else %}
-          <li><a href="{{url_for('auth.logout')}}">Logout</a></li>
+          <li><a href="{{url_for('auth.logout')}}" target="_self">Logout</a></li>
           {% endif %}
-          <li><a href="{{url_for('seller.seller')}}">Seller</a></li>
-          <li><a href="{{url_for('main.checkout')}}">Checkout</a></li>
+          <li><a href="{{url_for('main.checkout')}}" target="_self">Checkout</a></li>
         </ul>
       </div>
       </div>
@@ -132,12 +133,12 @@
     <div id="social-links">
       <h4>Github</h4>
 
-      <a href="https://github.com/pedrop-dev">
+      <a href="https://github.com/pedrop-dev" target="_blank">
         <!--<img src="{{ url_for('static', filename='icons/github.svg')}} " alt="Github" height=20px width=20px>-->
         
         Pedro
       </a>
-      <a href="https://github.com/HeitorRaimundoPrado">
+      <a href="https://github.com/HeitorRaimundoPrado" target="_blank">
         <!--<img src="{{ url_for('static', filename='icons/github.svg') }}" alt="Github" height=20px width=20px>-->
         
         Heitor
@@ -148,14 +149,14 @@
     <div id="social-links">
       <h4>Get in touch</h4>
       
-      <a href="#" class="acenter">
+      <a href="#" class="acenter" target="_blank">
         <!--<span class="material-symbols-outlined mail">
           mail
         </span>-->
         heitorrdpp@gmail.com
       </a>
     
-      <a href="#" class="acenter">
+      <a href="#" class="acenter" target="_blank">
         <!--<span class="material-symbols-outlined mail">
           mail
         </span>-->
@@ -168,7 +169,7 @@
 
       <p id="itrade-mark">&trade; 2023</p>
       
-      <a href="{{ url_for('main.about') }}">About Us</a>
+      <a href="{{ url_for('main.about') }}" target="_self">About Us</a>
     </div>
   </footer>
 </body>

@@ -13,7 +13,6 @@ function openCart() {
     cartDisapear.style.display = 'block'
     //Menu disappear
     menuAccountDisappear.style.display = 'none'
-
 }
 
 function closeCart() {  

@@ -22,6 +22,11 @@ div#main-img {
   padding-right: 30%;
 }
 
+#product-text > p {
+
+    text-align: justify;
+}
+
 #iflashes {
   color: red;
   font: bold;

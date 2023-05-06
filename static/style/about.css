@@ -26,6 +26,15 @@ main {
     margin-bottom: 10px;
 }
 
+.about-boxes > .txt-description > h3::after {
+    content: '';
+    height: 1px;
+    width: 60%;
+    display: inline-block;
+    background-color: black;
+}
+
+
 .about-boxes > .txt-description > p {
     color: #2e2e2e;
 }

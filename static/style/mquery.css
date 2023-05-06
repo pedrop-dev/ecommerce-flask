@@ -110,7 +110,7 @@
 /*Home*/
 /*Header*/
 
-/*@media (max-width: 992px) {
+@media (max-width: 600px) {
     #menu {
         display: block;
         cursor: pointer;
@@ -159,10 +159,9 @@
         'GRAD' 0,
         'opsz' 48
     }
-}*/
+}
 
 /*Menu*/
-
 
 @media screen and (min-width: 600px) and (max-width: 768px) {
     #menu-style {
@@ -205,12 +204,16 @@
 /*Body*/
 
 @media screen and (min-width: 600px) and (max-width: 768px) {
-    #main-img {
-       
+    #product-text > p {
+        width: 65%;
     }
 }
 
 @media screen and (min-width: 769px) and (max-width: 992px) {
+    #product-text > p {
+        width: 55%;
+    }
+
     #main-img {
         height: 60vh;
         padding-left: 120px;
@@ -222,6 +225,10 @@
 }
 
 @media screen and (min-width: 993px) {
+    #product-text > p {
+        width: 45%;
+    }
+
     #main-img {
         height: 60vh;
         padding-left: 160px;
