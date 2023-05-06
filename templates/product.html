@@ -7,18 +7,25 @@
 {% block content %}
 <div id="content-wrapper">
   
-  <div id="img-box">
-    <img src="{{ url_for('img', name=product['image'])}}" alt="Sorry, no image found!" width="300px" height="300px">
-  </div>
+  <!--<div id="img-box">
+    <img src="{{ url_for('main.img', name=product['image'])}}" alt="Sorry, no image found!" width="300px" height="300px">
+  </div>-->
 
   <form method="POST" id="content-box">
-    <h3>Page for {{ product['offername']}}</h3>
 
-    <h1>Page for {{ product['offername']}} </h1>
-    <img src="{{ url_for('main.img', name=product['image']) }}" alt="Sorry, no image found!" width=300px height=300px>
-    <form method="POST">
-      <input type="submit" value="Add To Chart">
-    </form>
+    <div id="content-box-img">
+      <img src="{{ url_for('main.img', name=product['image']) }}" alt="Sorry, no image found!">
+    </div>
+
+    <div id="content-box-info">
+      <h3>{{ product['offername']}}</h3>
+      <!--<h1>Page for {{ product['offername']}} </h1>-->
+
+      <div id="add-cart-box">
+        <input type="submit" value="Add To Chart" id="add-to-cart">
+      </div>
+  </div>
+
   </form>
 </div>
 {% endblock %}
