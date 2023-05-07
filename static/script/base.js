@@ -23,7 +23,7 @@ function closeCart() {
 function addToCart() {
     const cartItems = document.querySelector(".cart-items")
 
-    
+    cartItems.style.backgroundColor = 'red'
 }
 
 //Menu

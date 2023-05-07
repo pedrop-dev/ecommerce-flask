@@ -4,6 +4,9 @@
 <link rel="stylesheet" href="{{url_for('static', filename='style/product.css')}}">
 <link rel="stylesheet" href="{{url_for('static', filename='style/mquery.css')}}">
 {% endblock %}
+<script src="{{ url_for('static', filename='script/base.js') }}"></script>
+{% block script_imports %}
+{% endblock %}
 {% block content %}
 <div id="content-wrapper">
   

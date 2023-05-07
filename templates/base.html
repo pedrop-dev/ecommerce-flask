@@ -104,16 +104,17 @@
         
         <div class="cart-items">
           {% for cart_item in g.cart %}
-          <div class="cart-txt-img">
-            <p>
-               {{ cart_item['offername'] }} $ {{ cart_item['price'] }}
-            </p>
-            <img src="{{ url_for('main.img', name=cart_item['image']) }}" alt="No image for product" width=50px height=50px>
-            <br>
+          <div id="box-for-underl">
+            <div class="cart-txt-img">
+              <p>
+                 {{ cart_item['offername'] }} $ {{ cart_item['price'] }}
+              </p>
+              <img src="{{ url_for('main.img', name=cart_item['image']) }}" alt="No image for product" width=50px height=50px>
+            </div>
           </div>
           {% endfor %}
           {% if g.user %}
-          <p>
+          <p id="p-total">
             Total = $ {{ g.cart | sum(attribute='price')}}
           </p>
           {% endif %}
