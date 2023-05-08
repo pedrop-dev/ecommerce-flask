@@ -40,6 +40,12 @@
     padding: 10px;
 }
 
+#description-box {
+    margin:  15% auto 15% auto;
+    text-align: justify;
+    color: #2e2e2e;
+}
+
 #add-cart-box {
     width: 100%;
     display: flex;

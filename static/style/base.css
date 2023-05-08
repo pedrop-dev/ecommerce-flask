@@ -199,8 +199,27 @@ header {
     background-repeat: no-repeat;
 }
 
+#checkout-box {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+}
+
+#checkout-box a {
+    color: black;
+    padding: 15px 15px;
+    font-size: 1em;
+    transition: .2s ease-in-out;
+}
+
+#checkout-box a:hover {
+    text-decoration: underline;
+    color: #3a3a3a;
+}
+
 #p-total {
-    padding: 20px 50% 20px 0px;
+    padding: 20px 30% 20px 0px;
     margin-left: 5%;
     font-weight: bold;
 }

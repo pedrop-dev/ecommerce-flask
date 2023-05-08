@@ -9,10 +9,6 @@
 {% endblock %}
 {% block content %}
 <div id="content-wrapper">
-  
-  <!--<div id="img-box">
-    <img src="{{ url_for('main.img', name=product['image'])}}" alt="Sorry, no image found!" width="300px" height="300px">
-  </div>-->
 
   <form method="POST" id="content-box">
 
@@ -24,9 +20,14 @@
       <h3>{{ product['offername']}}</h3>
       <!--<h1>Page for {{ product['offername']}} </h1>-->
 
+      <p id="description-box">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae, assumenda totam nostrum nisi tempora mollitia.
+      </p>
+
       <div id="add-cart-box">
         <input type="submit" value="Add To Cart" id="add-to-cart" onclick="addToCart()">
-  </div>
+      </div>
+    </div>
 
   </form>
 </div>

@@ -327,8 +327,8 @@
         width: 70%;
     }
 
-    #content-box-info {
-        width: 50%;
+    #description-box {
+        width: 90%;
     }
 }
 
@@ -351,6 +351,10 @@
 
     #content-box-info {
         width: 50%;
+    }
+
+    #description-box {
+        width: 85%;
     }
 
     #add-to-cart {
@@ -377,6 +381,10 @@
 
     #content-box-info {
         width: 50%;
+    }
+
+    #description-box {
+        width: 80%;
     }
 
     #add-to-cart {

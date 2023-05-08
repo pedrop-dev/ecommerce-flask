@@ -114,9 +114,12 @@
           </div>
           {% endfor %}
           {% if g.user %}
-          <p id="p-total">
-            Total = $ {{ g.cart | sum(attribute='price')}}
-          </p>
+          <div id="checkout-box">
+            <p id="p-total">
+              Total = $ {{ g.cart | sum(attribute='price')}}
+            </p>
+            <a href="{{url_for('main.checkout')}}" target="_self">Checkout</a>
+          </div>
           {% endif %}
         </div>
       </div>

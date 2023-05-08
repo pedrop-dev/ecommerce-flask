@@ -1,5 +1,9 @@
 {% extends 'base.html' %}
 {% block title %} Checkout {% endblock %}
+{% block style_imports %}
+<link rel="stylesheet" href="{{url_for('static', filename='style/checkout.css')}}">
+<link rel="stylesheet" href="{{url_for('static', filename='style/mquery.css')}}">
+{% endblock %}
 {% block content %}
 <div id="content-wrapper">
   <ul>
