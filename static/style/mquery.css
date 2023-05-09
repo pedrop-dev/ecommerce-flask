@@ -392,6 +392,27 @@
     }
 }
 
+/*Checkout page*/
+
+@media screen and (min-width: 600px) and (max-width: 768px) {
+    #content-wrapper {
+        width: 70%;
+    }
+}
+
+@media screen and (min-width: 769px) and (max-width: 992px) {
+    #content-wrapper {
+        width: 50%;
+    }
+}
+
+@media screen and (min-width: 993px) {
+    #content-wrapper {
+        width: 40%;
+    }
+}
+
+
 /*Footer*/
 
 @media screen and (min-width: 600px) and (max-width: 768px) {
