@@ -83,13 +83,6 @@ div#main-img {
     margin-bottom: 7px;
 }
 
-.cart-items {
-    height: 100px;
-    width: 90%;
-    background-color: white;
-    box-shadow: 2px 2px 3px #0000001c;
-}
-
 #account-menu-disappear {
   display: none;
 }
