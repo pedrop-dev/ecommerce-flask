@@ -5,7 +5,7 @@
 
 div#main-img {
     height: 78vh;
-    width: 100%;
+    width: 100em;
     display: flex;
     flex-direction: column;
     justify-content: center;
