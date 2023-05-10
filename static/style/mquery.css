@@ -496,3 +496,45 @@
         background-color: black;
     }
 }
+
+/*Success page*/
+
+@media screen and (min-width: 600px) and (max-width: 768px) {
+    #main-success {
+        height: fit-content;
+        width: 65%;
+    }
+}
+
+@media screen and (min-width: 769px) and (max-width: 992px) {
+    #main-success {
+        width: 60%;
+    }
+}
+
+@media screen and (min-width: 993px) {
+    #main-success {
+        width: 40%;
+    }
+}
+
+/*Cancel page*/
+
+@media screen and (min-width: 600px) and (max-width: 768px) {
+    #main-cancel {
+        height: fit-content;
+        width: 65%;
+    }
+}
+
+@media screen and (min-width: 769px) and (max-width: 992px) {
+    #main-cancel {
+        width: 60%;
+    }
+}
+
+@media screen and (min-width: 993px) {
+    #main-cancel {
+        width: 40%;
+    }
+}

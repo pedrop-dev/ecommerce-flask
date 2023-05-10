@@ -335,8 +335,15 @@ header {
     color: white;
 }
 
+#social-links a {
+    width: fit-content;
+    display: flex;
+    align-items: center;
+}
+
 #social-links  a  img {
   filter: invert(100%) sepia(1%) saturate(5%) hue-rotate(337deg) brightness(103%) contrast(104%);
+  margin-right: 5px;
 }
 
 #itrade-mark {

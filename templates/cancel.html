@@ -2,8 +2,16 @@
 
 {% block title %}Invalid payment{% endblock %}
 
+{% block style_imports %}
+<link rel="stylesheet" href="{{url_for('static', filename='style/cancel.css')}}">
+<link rel="stylesheet" href="{{url_for('static', filename='style/mquery.css')}}">
+{% endblock %}
+
 {% block content %}
-<div>
-  <h1>Invalid payment</h1>
-</div>
+<main id="main-cancel">
+  <h2>Invalid payment</h2>
+  <p>
+    Lorem ipsum, dolor sit amet consectetur adipisicing elit voluptatem exercitationem repellat dolor beatae veniam corporis, voluptates ipsam obcaecati consequuntur natus nisi molestias, ea voluptatibus neque minus dignissimos, quasi dolores repellendus.
+  </p>
+</main>
 {% endblock %}

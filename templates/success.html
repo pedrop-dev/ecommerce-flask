@@ -2,8 +2,16 @@
 
 {% block title %}Order Placed{% endblock %}
 
+{% block style_imports %}
+<link rel="stylesheet" href="{{url_for('static', filename='style/success.css')}}">
+<link rel="stylesheet" href="{{url_for('static', filename='style/mquery.css')}}">
+{% endblock %}
+
 {% block content %}
-<div>
-  <h1>Order successfully placed</h1>
-</div>
+<main id="main-success">
+  <h2>Order successfully placed</h2>
+  <p>
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo asperiores reiciendis deleniti eaque rerum voluptatum, dolore doloribus recusandae porro, consectetur adipisci possimus autem qui ab nobis at perferendis eius maiores.
+  </p>
+</main>
 {% endblock %}
