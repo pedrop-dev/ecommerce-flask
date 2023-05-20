@@ -18,15 +18,20 @@
 <!--IMGs-->
 
 ### 🔧 Technologies<br>
-* HTML5, 
-* CSS3, 
-* JavaScript,
-* Python, 
-* Flask,
-* Stripe
+* **HTML5**: Used for structuring the project's web pages.
+ 
+* **CSS3**: Employed for styling and visual presentation.
+ 
+* **JavaScript**: Implemented for client-side interactivity and dynamic content.
+ 
+* **Python**: Used as the server-side programming language.
+ 
+* **Flask**: A lightweight web framework in Python, used for server-side development.
+ 
+* **Stripe**: Integrated as the payment gateway for secure and reliable transactions.
 
 ### 🤝 Collaborators <br>
-
+Heitor Raimundo Prado (GitHub: )
 
 A ecommerce project using Flask <br>
 🔗:https://sonofazathoth.pythonanywhere.com/
