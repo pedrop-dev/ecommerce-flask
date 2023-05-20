@@ -31,10 +31,9 @@
 * **Stripe**: Integrated as the payment gateway for secure and reliable transactions.
 
 ### 🤝 Collaborators <br>
-Heitor Raimundo Prado (GitHub: )
-
-A ecommerce project using Flask <br>
-🔗:https://sonofazathoth.pythonanywhere.com/
+Heitor Raimundo Prado ([GitHub](https://github.com/HeitorRaimundoPrado))
 
 ### 🎯 Project status <br>
 Finished
+
+### [See project](https://sonofazathoth.pythonanywhere.com/)
