@@ -2,7 +2,7 @@
 
 ### 📝 About <br>
 <p>
-  This is a Ecommerce project with the intention of learning new features and consolidate our habilities. This project aims to create a fully functional online store where users can browse products, add them to their shopping cart, and make secure payments.
+This project aims to create a fully functional online store where users can browse products, add them to their shopping cart, and make secure payments. Also, consolidate our habilities and learn new features. 
 </p>
 
 ### 📚 Features <br>
