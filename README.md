@@ -31,7 +31,8 @@
 * **Stripe**: Integrated as the payment gateway for secure and reliable transactions.
 
 ### 🤝 Collaborators <br>
-Heitor Raimundo Prado ([GitHub](https://github.com/HeitorRaimundoPrado))
+Heitor Raimundo Prado ([GitHub](https://github.com/HeitorRaimundoPrado)) <br>
+Pedro Henrique ([GitHub](https://github.com/pedrop-dev))
 
 ### 🎯 Project status <br>
 Finished
